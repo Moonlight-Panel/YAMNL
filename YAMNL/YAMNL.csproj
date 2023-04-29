@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>YAMNL</Title>
+        <Description>Yet Another Minecraft Networking Library</Description>
+        <PackageProjectUrl>https://github.com/Moonlight-Panel/YAMNL</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Moonlight-Panel/YAMNL</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
+      <PackageReference Include="fNbt" Version="0.6.4" />
+      <PackageReference Include="Logging.Net" Version="1.1.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    </ItemGroup>
+
+</Project>
