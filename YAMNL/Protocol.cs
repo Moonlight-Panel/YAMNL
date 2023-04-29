@@ -498,7 +498,7 @@ namespace YAMNL
 			public static AnonSwitch Read(PacketBuffer buffer, bool state) {
 				object? value = state switch {
 					false => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
-					true => ((Func<PacketBuffer, AnonSwitchStatetrueContainer>)((buffer) => Mine.Net.Slot.AnonSwitch.AnonSwitchStatetrueContainer.Read(buffer )))(buffer),
+					true => ((Func<PacketBuffer, AnonSwitchStatetrueContainer>)((buffer) => YAMNL.Slot.AnonSwitch.AnonSwitchStatetrueContainer.Read(buffer )))(buffer),
 				};
 				return new AnonSwitch(value);
 			}
@@ -649,7 +649,7 @@ namespace YAMNL
 				((Action<PacketBuffer, Slot>)((buffer, value) => value.Write(buffer )))(buffer, Item);
 			}
 			public static ParticleDataSwitchState35 Read(PacketBuffer buffer ) {
-				Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+				Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 				return new ParticleDataSwitchState35(@item);
 			}
 		}
@@ -721,13 +721,13 @@ namespace YAMNL
 		}
 		public static ParticleDataSwitch Read(PacketBuffer buffer, int state) {
 			object? value = state switch {
-				2 => ((Func<PacketBuffer, ParticleDataSwitchState2>)((buffer) => Mine.Net.ParticleDataSwitch.ParticleDataSwitchState2.Read(buffer )))(buffer),
-				3 => ((Func<PacketBuffer, ParticleDataSwitchState3>)((buffer) => Mine.Net.ParticleDataSwitch.ParticleDataSwitchState3.Read(buffer )))(buffer),
-				14 => ((Func<PacketBuffer, ParticleDataSwitchState14>)((buffer) => Mine.Net.ParticleDataSwitch.ParticleDataSwitchState14.Read(buffer )))(buffer),
-				15 => ((Func<PacketBuffer, ParticleDataSwitchState15>)((buffer) => Mine.Net.ParticleDataSwitch.ParticleDataSwitchState15.Read(buffer )))(buffer),
-				24 => ((Func<PacketBuffer, ParticleDataSwitchState24>)((buffer) => Mine.Net.ParticleDataSwitch.ParticleDataSwitchState24.Read(buffer )))(buffer),
-				35 => ((Func<PacketBuffer, ParticleDataSwitchState35>)((buffer) => Mine.Net.ParticleDataSwitch.ParticleDataSwitchState35.Read(buffer )))(buffer),
-				36 => ((Func<PacketBuffer, ParticleDataSwitchState36>)((buffer) => Mine.Net.ParticleDataSwitch.ParticleDataSwitchState36.Read(buffer )))(buffer),
+				2 => ((Func<PacketBuffer, ParticleDataSwitchState2>)((buffer) => YAMNL.ParticleDataSwitch.ParticleDataSwitchState2.Read(buffer )))(buffer),
+				3 => ((Func<PacketBuffer, ParticleDataSwitchState3>)((buffer) => YAMNL.ParticleDataSwitch.ParticleDataSwitchState3.Read(buffer )))(buffer),
+				14 => ((Func<PacketBuffer, ParticleDataSwitchState14>)((buffer) => YAMNL.ParticleDataSwitch.ParticleDataSwitchState14.Read(buffer )))(buffer),
+				15 => ((Func<PacketBuffer, ParticleDataSwitchState15>)((buffer) => YAMNL.ParticleDataSwitch.ParticleDataSwitchState15.Read(buffer )))(buffer),
+				24 => ((Func<PacketBuffer, ParticleDataSwitchState24>)((buffer) => YAMNL.ParticleDataSwitch.ParticleDataSwitchState24.Read(buffer )))(buffer),
+				35 => ((Func<PacketBuffer, ParticleDataSwitchState35>)((buffer) => YAMNL.ParticleDataSwitch.ParticleDataSwitchState35.Read(buffer )))(buffer),
+				36 => ((Func<PacketBuffer, ParticleDataSwitchState36>)((buffer) => YAMNL.ParticleDataSwitch.ParticleDataSwitchState36.Read(buffer )))(buffer),
 				_ => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer)
 			};
 			return new ParticleDataSwitch(value);
@@ -883,17 +883,17 @@ namespace YAMNL
 				3 => ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer),
 				4 => ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer),
 				5 => ((Func<PacketBuffer, string?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))))))))(buffer),
-				6 => ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer),
+				6 => ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer),
 				7 => ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer),
-				8 => ((Func<PacketBuffer, EntityMetadataItemSwitchState8>)((buffer) => Mine.Net.EntityMetadataItemSwitch.EntityMetadataItemSwitchState8.Read(buffer )))(buffer),
+				8 => ((Func<PacketBuffer, EntityMetadataItemSwitchState8>)((buffer) => YAMNL.EntityMetadataItemSwitch.EntityMetadataItemSwitchState8.Read(buffer )))(buffer),
 				9 => ((Func<PacketBuffer, PositionBitfield>)((buffer) => new PositionBitfield(((Func<PacketBuffer, ulong>)((buffer) => buffer.ReadU64()))(buffer))))(buffer),
 				10 => ((Func<PacketBuffer, PositionBitfield?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, PositionBitfield>)((buffer) => new PositionBitfield(((Func<PacketBuffer, ulong>)((buffer) => buffer.ReadU64()))(buffer)))))))(buffer),
 				11 => ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer),
 				12 => ((Func<PacketBuffer, UUID?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, UUID>)((buffer) => buffer.ReadUUID())))))(buffer),
 				13 => ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer),
 				14 => ((Func<PacketBuffer, NbtCompound>)((buffer) => buffer.ReadNbt()))(buffer),
-				15 => ((Func<PacketBuffer, Particle>)((buffer) => Mine.Net.Particle.Read(buffer )))(buffer),
-				16 => ((Func<PacketBuffer, EntityMetadataItemSwitchState16>)((buffer) => Mine.Net.EntityMetadataItemSwitch.EntityMetadataItemSwitchState16.Read(buffer )))(buffer),
+				15 => ((Func<PacketBuffer, Particle>)((buffer) => YAMNL.Particle.Read(buffer )))(buffer),
+				16 => ((Func<PacketBuffer, EntityMetadataItemSwitchState16>)((buffer) => YAMNL.EntityMetadataItemSwitch.EntityMetadataItemSwitchState16.Read(buffer )))(buffer),
 				17 => ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer),
 				18 => ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer),
 				19 => ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer),
@@ -960,7 +960,7 @@ namespace YAMNL
 			((Action<PacketBuffer, EntityMetadataItemSwitch>)((buffer, value) => value.Write(buffer, Type)))(buffer, Value);
 		}
 		public static EntityMetadataLoopElement Read(PacketBuffer buffer ) {
-			AnonContainer @anon = ((Func<PacketBuffer, AnonContainer>)((buffer) => Mine.Net.EntityMetadataLoopElement.AnonContainer.Read(buffer )))(buffer);
+			AnonContainer @anon = ((Func<PacketBuffer, AnonContainer>)((buffer) => YAMNL.EntityMetadataLoopElement.AnonContainer.Read(buffer )))(buffer);
 			byte @key = @anon.Key;
 			VarInt @type = @anon.Type;
 			EntityMetadataItemSwitch @value = ((Func<PacketBuffer, EntityMetadataItemSwitch>)((buffer) => EntityMetadataItemSwitch.Read(buffer, @type)))(buffer);
@@ -989,8 +989,8 @@ namespace YAMNL
 		}
 		public static MinecraftSmeltingFormat Read(PacketBuffer buffer ) {
 			string @group = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-			Slot[] @ingredient = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer ))))))(buffer);
-			Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+			Slot[] @ingredient = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer ))))))(buffer);
+			Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 			float @experience = ((Func<PacketBuffer, float>)((buffer) => buffer.ReadF32()))(buffer);
 			VarInt @cookTime = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			return new MinecraftSmeltingFormat(@group, @ingredient, @result, @experience, @cookTime);
@@ -1705,10 +1705,10 @@ namespace YAMNL
 					public static PropertiesSwitch Read(PacketBuffer buffer, string state) {
 						object? value = state switch {
 							"brigadier:bool" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
-							"brigadier:float" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierFloatContainer>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierFloatContainer.Read(buffer )))(buffer),
-							"brigadier:double" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierDoubleContainer>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierDoubleContainer.Read(buffer )))(buffer),
-							"brigadier:integer" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierIntegerContainer>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierIntegerContainer.Read(buffer )))(buffer),
-							"brigadier:long" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierLongContainer>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierLongContainer.Read(buffer )))(buffer),
+							"brigadier:float" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierFloatContainer>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierFloatContainer.Read(buffer )))(buffer),
+							"brigadier:double" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierDoubleContainer>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierDoubleContainer.Read(buffer )))(buffer),
+							"brigadier:integer" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierIntegerContainer>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierIntegerContainer.Read(buffer )))(buffer),
+							"brigadier:long" => ((Func<PacketBuffer, PropertiesSwitchStatebrigadierLongContainer>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStatebrigadierLongContainer.Read(buffer )))(buffer),
 							"brigadier:string" => ((Func<PacketBuffer, string>)((buffer) => ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer).Value switch { 0 => "SINGLE_WORD", 1 => "QUOTABLE_PHRASE", 2 => "GREEDY_PHRASE", _ => throw new Exception() }))(buffer),
 							"minecraft:entity" => ((Func<PacketBuffer, PropertiesSwitchStateminecraftEntityBitfield>)((buffer) => new PropertiesSwitchStateminecraftEntityBitfield(((Func<PacketBuffer, byte>)((buffer) => buffer.ReadU8()))(buffer))))(buffer),
 							"minecraft:game_profile" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
@@ -1746,8 +1746,8 @@ namespace YAMNL
 							"minecraft:entity_summon" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 							"minecraft:dimension" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 							"minecraft:time" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
-							"minecraft:resource_or_tag" => ((Func<PacketBuffer, PropertiesswitchstateminecraftResourceOrTagContainer>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesswitchstateminecraftResourceOrTagContainer.Read(buffer )))(buffer),
-							"minecraft:resource" => ((Func<PacketBuffer, PropertiesSwitchStateminecraftResourceContainer>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStateminecraftResourceContainer.Read(buffer )))(buffer),
+							"minecraft:resource_or_tag" => ((Func<PacketBuffer, PropertiesswitchstateminecraftResourceOrTagContainer>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesswitchstateminecraftResourceOrTagContainer.Read(buffer )))(buffer),
+							"minecraft:resource" => ((Func<PacketBuffer, PropertiesSwitchStateminecraftResourceContainer>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.PropertiesSwitch.PropertiesSwitchStateminecraftResourceContainer.Read(buffer )))(buffer),
 							"template_mirror" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 							"template_rotation" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 							"minecraft:uuid" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
@@ -1834,8 +1834,8 @@ namespace YAMNL
 			public static ExtraNodeDataSwitch Read(PacketBuffer buffer, byte state, FlagsBitfield @flags) {
 				object? value = state switch {
 					0 => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
-					1 => ((Func<PacketBuffer, ExtraNodeDataSwitchState1Container>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState1Container.Read(buffer )))(buffer),
-					2 => ((Func<PacketBuffer, ExtraNodeDataSwitchState2Container>)((buffer) => Mine.Net.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.Read(buffer , @flags)))(buffer),
+					1 => ((Func<PacketBuffer, ExtraNodeDataSwitchState1Container>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState1Container.Read(buffer )))(buffer),
+					2 => ((Func<PacketBuffer, ExtraNodeDataSwitchState2Container>)((buffer) => YAMNL.CommandNode.ExtraNodeDataSwitch.ExtraNodeDataSwitchState2Container.Read(buffer , @flags)))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ExtraNodeDataSwitch(value);
@@ -1995,10 +1995,10 @@ namespace YAMNL.Play.Serverbound
 			string @command = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
 			long @timestamp = ((Func<PacketBuffer, long>)((buffer) => buffer.ReadI64()))(buffer);
 			long @salt = ((Func<PacketBuffer, long>)((buffer) => buffer.ReadI64()))(buffer);
-			ArgumentSignaturesElementContainer[] @argumentSignatures = ((Func<PacketBuffer, ArgumentSignaturesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ArgumentSignaturesElementContainer>)((buffer) => Mine.Net.Play.Serverbound.PacketChatCommand.ArgumentSignaturesElementContainer.Read(buffer ))))))(buffer);
+			ArgumentSignaturesElementContainer[] @argumentSignatures = ((Func<PacketBuffer, ArgumentSignaturesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ArgumentSignaturesElementContainer>)((buffer) => YAMNL.Play.Serverbound.PacketChatCommand.ArgumentSignaturesElementContainer.Read(buffer ))))))(buffer);
 			bool @signedPreview = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
-			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => Mine.Net.PreviousMessagesElement.Read(buffer ))))))(buffer);
-			LastMessageContainer? @lastMessage = ((Func<PacketBuffer, LastMessageContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, LastMessageContainer>)((buffer) => Mine.Net.Play.Serverbound.PacketChatCommand.LastMessageContainer.Read(buffer ))))))(buffer);
+			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => YAMNL.PreviousMessagesElement.Read(buffer ))))))(buffer);
+			LastMessageContainer? @lastMessage = ((Func<PacketBuffer, LastMessageContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, LastMessageContainer>)((buffer) => YAMNL.Play.Serverbound.PacketChatCommand.LastMessageContainer.Read(buffer ))))))(buffer);
 			return new PacketChatCommand(@command, @timestamp, @salt, @argumentSignatures, @signedPreview, @previousMessages, @lastMessage);
 		}
 	}
@@ -2051,8 +2051,8 @@ namespace YAMNL.Play.Serverbound
 			long @salt = ((Func<PacketBuffer, long>)((buffer) => buffer.ReadI64()))(buffer);
 			byte[] @signature = ((Func<PacketBuffer, byte[]>)((buffer) => buffer.ReadBuffer(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer))))(buffer);
 			bool @signedPreview = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
-			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => Mine.Net.PreviousMessagesElement.Read(buffer ))))))(buffer);
-			LastMessageContainer? @lastMessage = ((Func<PacketBuffer, LastMessageContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, LastMessageContainer>)((buffer) => Mine.Net.Play.Serverbound.PacketChatMessage.LastMessageContainer.Read(buffer ))))))(buffer);
+			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => YAMNL.PreviousMessagesElement.Read(buffer ))))))(buffer);
+			LastMessageContainer? @lastMessage = ((Func<PacketBuffer, LastMessageContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, LastMessageContainer>)((buffer) => YAMNL.Play.Serverbound.PacketChatMessage.LastMessageContainer.Read(buffer ))))))(buffer);
 			return new PacketChatMessage(@message, @timestamp, @salt, @signature, @signedPreview, @previousMessages, @lastMessage);
 		}
 	}
@@ -2115,8 +2115,8 @@ namespace YAMNL.Play.Serverbound
 			((Action<PacketBuffer, LastMessageContainer?>)((buffer, value) => buffer.WriteOption(value, ((Action<PacketBuffer, LastMessageContainer>)((buffer, value) => value.Write(buffer ))))))(buffer, LastMessage);
 		}
 		public static PacketMessageAcknowledgement Read(PacketBuffer buffer ) {
-			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => Mine.Net.PreviousMessagesElement.Read(buffer ))))))(buffer);
-			LastMessageContainer? @lastMessage = ((Func<PacketBuffer, LastMessageContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, LastMessageContainer>)((buffer) => Mine.Net.Play.Serverbound.PacketMessageAcknowledgement.LastMessageContainer.Read(buffer ))))))(buffer);
+			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => YAMNL.PreviousMessagesElement.Read(buffer ))))))(buffer);
+			LastMessageContainer? @lastMessage = ((Func<PacketBuffer, LastMessageContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, LastMessageContainer>)((buffer) => YAMNL.Play.Serverbound.PacketMessageAcknowledgement.LastMessageContainer.Read(buffer ))))))(buffer);
 			return new PacketMessageAcknowledgement(@previousMessages, @lastMessage);
 		}
 	}
@@ -2435,7 +2435,7 @@ namespace YAMNL.Play.Serverbound
 			}
 			public static ChangedSlotsElementContainer Read(PacketBuffer buffer ) {
 				short @location = ((Func<PacketBuffer, short>)((buffer) => buffer.ReadI16()))(buffer);
-				Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+				Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 				return new ChangedSlotsElementContainer(@location, @item);
 			}
 		}
@@ -2470,8 +2470,8 @@ namespace YAMNL.Play.Serverbound
 			short @slot = ((Func<PacketBuffer, short>)((buffer) => buffer.ReadI16()))(buffer);
 			sbyte @mouseButton = ((Func<PacketBuffer, sbyte>)((buffer) => buffer.ReadI8()))(buffer);
 			VarInt @mode = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			ChangedSlotsElementContainer[] @changedSlots = ((Func<PacketBuffer, ChangedSlotsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ChangedSlotsElementContainer>)((buffer) => Mine.Net.Play.Serverbound.PacketWindowClick.ChangedSlotsElementContainer.Read(buffer ))))))(buffer);
-			Slot @cursorItem = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+			ChangedSlotsElementContainer[] @changedSlots = ((Func<PacketBuffer, ChangedSlotsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ChangedSlotsElementContainer>)((buffer) => YAMNL.Play.Serverbound.PacketWindowClick.ChangedSlotsElementContainer.Read(buffer ))))))(buffer);
+			Slot @cursorItem = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 			return new PacketWindowClick(@windowId, @stateId, @slot, @mouseButton, @mode, @changedSlots, @cursorItem);
 		}
 	}
@@ -2987,7 +2987,7 @@ namespace YAMNL.Play.Serverbound
 		}
 		public static PacketSetCreativeSlot Read(PacketBuffer buffer ) {
 			short @slot = ((Func<PacketBuffer, short>)((buffer) => buffer.ReadI16()))(buffer);
-			Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+			Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 			return new PacketSetCreativeSlot(@slot, @item);
 		}
 	}
@@ -3254,57 +3254,57 @@ namespace YAMNL.Play.Serverbound
 			}
 			public static ParamsSwitch Read(PacketBuffer buffer, string state) {
 				object? value = state switch {
-					"teleport_confirm" => ((Func<PacketBuffer, PacketTeleportConfirm>)((buffer) => Mine.Net.Play.Serverbound.PacketTeleportConfirm.Read(buffer )))(buffer),
-					"query_block_nbt" => ((Func<PacketBuffer, PacketQueryBlockNbt>)((buffer) => Mine.Net.Play.Serverbound.PacketQueryBlockNbt.Read(buffer )))(buffer),
-					"set_difficulty" => ((Func<PacketBuffer, PacketSetDifficulty>)((buffer) => Mine.Net.Play.Serverbound.PacketSetDifficulty.Read(buffer )))(buffer),
-					"message_acknowledgement" => ((Func<PacketBuffer, PacketMessageAcknowledgement>)((buffer) => Mine.Net.Play.Serverbound.PacketMessageAcknowledgement.Read(buffer )))(buffer),
-					"chat_command" => ((Func<PacketBuffer, PacketChatCommand>)((buffer) => Mine.Net.Play.Serverbound.PacketChatCommand.Read(buffer )))(buffer),
-					"chat_message" => ((Func<PacketBuffer, PacketChatMessage>)((buffer) => Mine.Net.Play.Serverbound.PacketChatMessage.Read(buffer )))(buffer),
-					"chat_preview" => ((Func<PacketBuffer, PacketChatPreview>)((buffer) => Mine.Net.Play.Serverbound.PacketChatPreview.Read(buffer )))(buffer),
-					"client_command" => ((Func<PacketBuffer, PacketClientCommand>)((buffer) => Mine.Net.Play.Serverbound.PacketClientCommand.Read(buffer )))(buffer),
-					"settings" => ((Func<PacketBuffer, PacketSettings>)((buffer) => Mine.Net.Play.Serverbound.PacketSettings.Read(buffer )))(buffer),
-					"tab_complete" => ((Func<PacketBuffer, PacketTabComplete>)((buffer) => Mine.Net.Play.Serverbound.PacketTabComplete.Read(buffer )))(buffer),
-					"enchant_item" => ((Func<PacketBuffer, PacketEnchantItem>)((buffer) => Mine.Net.Play.Serverbound.PacketEnchantItem.Read(buffer )))(buffer),
-					"window_click" => ((Func<PacketBuffer, PacketWindowClick>)((buffer) => Mine.Net.Play.Serverbound.PacketWindowClick.Read(buffer )))(buffer),
-					"close_window" => ((Func<PacketBuffer, PacketCloseWindow>)((buffer) => Mine.Net.Play.Serverbound.PacketCloseWindow.Read(buffer )))(buffer),
-					"custom_payload" => ((Func<PacketBuffer, PacketCustomPayload>)((buffer) => Mine.Net.Play.Serverbound.PacketCustomPayload.Read(buffer )))(buffer),
-					"edit_book" => ((Func<PacketBuffer, PacketEditBook>)((buffer) => Mine.Net.Play.Serverbound.PacketEditBook.Read(buffer )))(buffer),
-					"query_entity_nbt" => ((Func<PacketBuffer, PacketQueryEntityNbt>)((buffer) => Mine.Net.Play.Serverbound.PacketQueryEntityNbt.Read(buffer )))(buffer),
-					"use_entity" => ((Func<PacketBuffer, PacketUseEntity>)((buffer) => Mine.Net.Play.Serverbound.PacketUseEntity.Read(buffer )))(buffer),
-					"generate_structure" => ((Func<PacketBuffer, PacketGenerateStructure>)((buffer) => Mine.Net.Play.Serverbound.PacketGenerateStructure.Read(buffer )))(buffer),
-					"keep_alive" => ((Func<PacketBuffer, PacketKeepAlive>)((buffer) => Mine.Net.Play.Serverbound.PacketKeepAlive.Read(buffer )))(buffer),
-					"lock_difficulty" => ((Func<PacketBuffer, PacketLockDifficulty>)((buffer) => Mine.Net.Play.Serverbound.PacketLockDifficulty.Read(buffer )))(buffer),
-					"position" => ((Func<PacketBuffer, PacketPosition>)((buffer) => Mine.Net.Play.Serverbound.PacketPosition.Read(buffer )))(buffer),
-					"position_look" => ((Func<PacketBuffer, PacketPositionLook>)((buffer) => Mine.Net.Play.Serverbound.PacketPositionLook.Read(buffer )))(buffer),
-					"look" => ((Func<PacketBuffer, PacketLook>)((buffer) => Mine.Net.Play.Serverbound.PacketLook.Read(buffer )))(buffer),
-					"flying" => ((Func<PacketBuffer, PacketFlying>)((buffer) => Mine.Net.Play.Serverbound.PacketFlying.Read(buffer )))(buffer),
-					"vehicle_move" => ((Func<PacketBuffer, PacketVehicleMove>)((buffer) => Mine.Net.Play.Serverbound.PacketVehicleMove.Read(buffer )))(buffer),
-					"steer_boat" => ((Func<PacketBuffer, PacketSteerBoat>)((buffer) => Mine.Net.Play.Serverbound.PacketSteerBoat.Read(buffer )))(buffer),
-					"pick_item" => ((Func<PacketBuffer, PacketPickItem>)((buffer) => Mine.Net.Play.Serverbound.PacketPickItem.Read(buffer )))(buffer),
-					"craft_recipe_request" => ((Func<PacketBuffer, PacketCraftRecipeRequest>)((buffer) => Mine.Net.Play.Serverbound.PacketCraftRecipeRequest.Read(buffer )))(buffer),
-					"abilities" => ((Func<PacketBuffer, PacketAbilities>)((buffer) => Mine.Net.Play.Serverbound.PacketAbilities.Read(buffer )))(buffer),
-					"block_dig" => ((Func<PacketBuffer, PacketBlockDig>)((buffer) => Mine.Net.Play.Serverbound.PacketBlockDig.Read(buffer )))(buffer),
-					"entity_action" => ((Func<PacketBuffer, PacketEntityAction>)((buffer) => Mine.Net.Play.Serverbound.PacketEntityAction.Read(buffer )))(buffer),
-					"steer_vehicle" => ((Func<PacketBuffer, PacketSteerVehicle>)((buffer) => Mine.Net.Play.Serverbound.PacketSteerVehicle.Read(buffer )))(buffer),
-					"pong" => ((Func<PacketBuffer, PacketPong>)((buffer) => Mine.Net.Play.Serverbound.PacketPong.Read(buffer )))(buffer),
-					"recipe_book" => ((Func<PacketBuffer, PacketRecipeBook>)((buffer) => Mine.Net.Play.Serverbound.PacketRecipeBook.Read(buffer )))(buffer),
-					"displayed_recipe" => ((Func<PacketBuffer, PacketDisplayedRecipe>)((buffer) => Mine.Net.Play.Serverbound.PacketDisplayedRecipe.Read(buffer )))(buffer),
-					"name_item" => ((Func<PacketBuffer, PacketNameItem>)((buffer) => Mine.Net.Play.Serverbound.PacketNameItem.Read(buffer )))(buffer),
-					"resource_pack_receive" => ((Func<PacketBuffer, PacketResourcePackReceive>)((buffer) => Mine.Net.Play.Serverbound.PacketResourcePackReceive.Read(buffer )))(buffer),
-					"advancement_tab" => ((Func<PacketBuffer, PacketAdvancementTab>)((buffer) => Mine.Net.Play.Serverbound.PacketAdvancementTab.Read(buffer )))(buffer),
-					"select_trade" => ((Func<PacketBuffer, PacketSelectTrade>)((buffer) => Mine.Net.Play.Serverbound.PacketSelectTrade.Read(buffer )))(buffer),
-					"set_beacon_effect" => ((Func<PacketBuffer, PacketSetBeaconEffect>)((buffer) => Mine.Net.Play.Serverbound.PacketSetBeaconEffect.Read(buffer )))(buffer),
-					"held_item_slot" => ((Func<PacketBuffer, PacketHeldItemSlot>)((buffer) => Mine.Net.Play.Serverbound.PacketHeldItemSlot.Read(buffer )))(buffer),
-					"update_command_block" => ((Func<PacketBuffer, PacketUpdateCommandBlock>)((buffer) => Mine.Net.Play.Serverbound.PacketUpdateCommandBlock.Read(buffer )))(buffer),
-					"update_command_block_minecart" => ((Func<PacketBuffer, PacketUpdateCommandBlockMinecart>)((buffer) => Mine.Net.Play.Serverbound.PacketUpdateCommandBlockMinecart.Read(buffer )))(buffer),
-					"set_creative_slot" => ((Func<PacketBuffer, PacketSetCreativeSlot>)((buffer) => Mine.Net.Play.Serverbound.PacketSetCreativeSlot.Read(buffer )))(buffer),
-					"update_jigsaw_block" => ((Func<PacketBuffer, PacketUpdateJigsawBlock>)((buffer) => Mine.Net.Play.Serverbound.PacketUpdateJigsawBlock.Read(buffer )))(buffer),
-					"update_structure_block" => ((Func<PacketBuffer, PacketUpdateStructureBlock>)((buffer) => Mine.Net.Play.Serverbound.PacketUpdateStructureBlock.Read(buffer )))(buffer),
-					"update_sign" => ((Func<PacketBuffer, PacketUpdateSign>)((buffer) => Mine.Net.Play.Serverbound.PacketUpdateSign.Read(buffer )))(buffer),
-					"arm_animation" => ((Func<PacketBuffer, PacketArmAnimation>)((buffer) => Mine.Net.Play.Serverbound.PacketArmAnimation.Read(buffer )))(buffer),
-					"spectate" => ((Func<PacketBuffer, PacketSpectate>)((buffer) => Mine.Net.Play.Serverbound.PacketSpectate.Read(buffer )))(buffer),
-					"block_place" => ((Func<PacketBuffer, PacketBlockPlace>)((buffer) => Mine.Net.Play.Serverbound.PacketBlockPlace.Read(buffer )))(buffer),
-					"use_item" => ((Func<PacketBuffer, PacketUseItem>)((buffer) => Mine.Net.Play.Serverbound.PacketUseItem.Read(buffer )))(buffer),
+					"teleport_confirm" => ((Func<PacketBuffer, PacketTeleportConfirm>)((buffer) => YAMNL.Play.Serverbound.PacketTeleportConfirm.Read(buffer )))(buffer),
+					"query_block_nbt" => ((Func<PacketBuffer, PacketQueryBlockNbt>)((buffer) => YAMNL.Play.Serverbound.PacketQueryBlockNbt.Read(buffer )))(buffer),
+					"set_difficulty" => ((Func<PacketBuffer, PacketSetDifficulty>)((buffer) => YAMNL.Play.Serverbound.PacketSetDifficulty.Read(buffer )))(buffer),
+					"message_acknowledgement" => ((Func<PacketBuffer, PacketMessageAcknowledgement>)((buffer) => YAMNL.Play.Serverbound.PacketMessageAcknowledgement.Read(buffer )))(buffer),
+					"chat_command" => ((Func<PacketBuffer, PacketChatCommand>)((buffer) => YAMNL.Play.Serverbound.PacketChatCommand.Read(buffer )))(buffer),
+					"chat_message" => ((Func<PacketBuffer, PacketChatMessage>)((buffer) => YAMNL.Play.Serverbound.PacketChatMessage.Read(buffer )))(buffer),
+					"chat_preview" => ((Func<PacketBuffer, PacketChatPreview>)((buffer) => YAMNL.Play.Serverbound.PacketChatPreview.Read(buffer )))(buffer),
+					"client_command" => ((Func<PacketBuffer, PacketClientCommand>)((buffer) => YAMNL.Play.Serverbound.PacketClientCommand.Read(buffer )))(buffer),
+					"settings" => ((Func<PacketBuffer, PacketSettings>)((buffer) => YAMNL.Play.Serverbound.PacketSettings.Read(buffer )))(buffer),
+					"tab_complete" => ((Func<PacketBuffer, PacketTabComplete>)((buffer) => YAMNL.Play.Serverbound.PacketTabComplete.Read(buffer )))(buffer),
+					"enchant_item" => ((Func<PacketBuffer, PacketEnchantItem>)((buffer) => YAMNL.Play.Serverbound.PacketEnchantItem.Read(buffer )))(buffer),
+					"window_click" => ((Func<PacketBuffer, PacketWindowClick>)((buffer) => YAMNL.Play.Serverbound.PacketWindowClick.Read(buffer )))(buffer),
+					"close_window" => ((Func<PacketBuffer, PacketCloseWindow>)((buffer) => YAMNL.Play.Serverbound.PacketCloseWindow.Read(buffer )))(buffer),
+					"custom_payload" => ((Func<PacketBuffer, PacketCustomPayload>)((buffer) => YAMNL.Play.Serverbound.PacketCustomPayload.Read(buffer )))(buffer),
+					"edit_book" => ((Func<PacketBuffer, PacketEditBook>)((buffer) => YAMNL.Play.Serverbound.PacketEditBook.Read(buffer )))(buffer),
+					"query_entity_nbt" => ((Func<PacketBuffer, PacketQueryEntityNbt>)((buffer) => YAMNL.Play.Serverbound.PacketQueryEntityNbt.Read(buffer )))(buffer),
+					"use_entity" => ((Func<PacketBuffer, PacketUseEntity>)((buffer) => YAMNL.Play.Serverbound.PacketUseEntity.Read(buffer )))(buffer),
+					"generate_structure" => ((Func<PacketBuffer, PacketGenerateStructure>)((buffer) => YAMNL.Play.Serverbound.PacketGenerateStructure.Read(buffer )))(buffer),
+					"keep_alive" => ((Func<PacketBuffer, PacketKeepAlive>)((buffer) => YAMNL.Play.Serverbound.PacketKeepAlive.Read(buffer )))(buffer),
+					"lock_difficulty" => ((Func<PacketBuffer, PacketLockDifficulty>)((buffer) => YAMNL.Play.Serverbound.PacketLockDifficulty.Read(buffer )))(buffer),
+					"position" => ((Func<PacketBuffer, PacketPosition>)((buffer) => YAMNL.Play.Serverbound.PacketPosition.Read(buffer )))(buffer),
+					"position_look" => ((Func<PacketBuffer, PacketPositionLook>)((buffer) => YAMNL.Play.Serverbound.PacketPositionLook.Read(buffer )))(buffer),
+					"look" => ((Func<PacketBuffer, PacketLook>)((buffer) => YAMNL.Play.Serverbound.PacketLook.Read(buffer )))(buffer),
+					"flying" => ((Func<PacketBuffer, PacketFlying>)((buffer) => YAMNL.Play.Serverbound.PacketFlying.Read(buffer )))(buffer),
+					"vehicle_move" => ((Func<PacketBuffer, PacketVehicleMove>)((buffer) => YAMNL.Play.Serverbound.PacketVehicleMove.Read(buffer )))(buffer),
+					"steer_boat" => ((Func<PacketBuffer, PacketSteerBoat>)((buffer) => YAMNL.Play.Serverbound.PacketSteerBoat.Read(buffer )))(buffer),
+					"pick_item" => ((Func<PacketBuffer, PacketPickItem>)((buffer) => YAMNL.Play.Serverbound.PacketPickItem.Read(buffer )))(buffer),
+					"craft_recipe_request" => ((Func<PacketBuffer, PacketCraftRecipeRequest>)((buffer) => YAMNL.Play.Serverbound.PacketCraftRecipeRequest.Read(buffer )))(buffer),
+					"abilities" => ((Func<PacketBuffer, PacketAbilities>)((buffer) => YAMNL.Play.Serverbound.PacketAbilities.Read(buffer )))(buffer),
+					"block_dig" => ((Func<PacketBuffer, PacketBlockDig>)((buffer) => YAMNL.Play.Serverbound.PacketBlockDig.Read(buffer )))(buffer),
+					"entity_action" => ((Func<PacketBuffer, PacketEntityAction>)((buffer) => YAMNL.Play.Serverbound.PacketEntityAction.Read(buffer )))(buffer),
+					"steer_vehicle" => ((Func<PacketBuffer, PacketSteerVehicle>)((buffer) => YAMNL.Play.Serverbound.PacketSteerVehicle.Read(buffer )))(buffer),
+					"pong" => ((Func<PacketBuffer, PacketPong>)((buffer) => YAMNL.Play.Serverbound.PacketPong.Read(buffer )))(buffer),
+					"recipe_book" => ((Func<PacketBuffer, PacketRecipeBook>)((buffer) => YAMNL.Play.Serverbound.PacketRecipeBook.Read(buffer )))(buffer),
+					"displayed_recipe" => ((Func<PacketBuffer, PacketDisplayedRecipe>)((buffer) => YAMNL.Play.Serverbound.PacketDisplayedRecipe.Read(buffer )))(buffer),
+					"name_item" => ((Func<PacketBuffer, PacketNameItem>)((buffer) => YAMNL.Play.Serverbound.PacketNameItem.Read(buffer )))(buffer),
+					"resource_pack_receive" => ((Func<PacketBuffer, PacketResourcePackReceive>)((buffer) => YAMNL.Play.Serverbound.PacketResourcePackReceive.Read(buffer )))(buffer),
+					"advancement_tab" => ((Func<PacketBuffer, PacketAdvancementTab>)((buffer) => YAMNL.Play.Serverbound.PacketAdvancementTab.Read(buffer )))(buffer),
+					"select_trade" => ((Func<PacketBuffer, PacketSelectTrade>)((buffer) => YAMNL.Play.Serverbound.PacketSelectTrade.Read(buffer )))(buffer),
+					"set_beacon_effect" => ((Func<PacketBuffer, PacketSetBeaconEffect>)((buffer) => YAMNL.Play.Serverbound.PacketSetBeaconEffect.Read(buffer )))(buffer),
+					"held_item_slot" => ((Func<PacketBuffer, PacketHeldItemSlot>)((buffer) => YAMNL.Play.Serverbound.PacketHeldItemSlot.Read(buffer )))(buffer),
+					"update_command_block" => ((Func<PacketBuffer, PacketUpdateCommandBlock>)((buffer) => YAMNL.Play.Serverbound.PacketUpdateCommandBlock.Read(buffer )))(buffer),
+					"update_command_block_minecart" => ((Func<PacketBuffer, PacketUpdateCommandBlockMinecart>)((buffer) => YAMNL.Play.Serverbound.PacketUpdateCommandBlockMinecart.Read(buffer )))(buffer),
+					"set_creative_slot" => ((Func<PacketBuffer, PacketSetCreativeSlot>)((buffer) => YAMNL.Play.Serverbound.PacketSetCreativeSlot.Read(buffer )))(buffer),
+					"update_jigsaw_block" => ((Func<PacketBuffer, PacketUpdateJigsawBlock>)((buffer) => YAMNL.Play.Serverbound.PacketUpdateJigsawBlock.Read(buffer )))(buffer),
+					"update_structure_block" => ((Func<PacketBuffer, PacketUpdateStructureBlock>)((buffer) => YAMNL.Play.Serverbound.PacketUpdateStructureBlock.Read(buffer )))(buffer),
+					"update_sign" => ((Func<PacketBuffer, PacketUpdateSign>)((buffer) => YAMNL.Play.Serverbound.PacketUpdateSign.Read(buffer )))(buffer),
+					"arm_animation" => ((Func<PacketBuffer, PacketArmAnimation>)((buffer) => YAMNL.Play.Serverbound.PacketArmAnimation.Read(buffer )))(buffer),
+					"spectate" => ((Func<PacketBuffer, PacketSpectate>)((buffer) => YAMNL.Play.Serverbound.PacketSpectate.Read(buffer )))(buffer),
+					"block_place" => ((Func<PacketBuffer, PacketBlockPlace>)((buffer) => YAMNL.Play.Serverbound.PacketBlockPlace.Read(buffer )))(buffer),
+					"use_item" => ((Func<PacketBuffer, PacketUseItem>)((buffer) => YAMNL.Play.Serverbound.PacketUseItem.Read(buffer )))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ParamsSwitch(value);
@@ -3430,61 +3430,61 @@ namespace YAMNL.Play.Serverbound
 	}
 	public class PlayPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Play.Serverbound.Packet.Read(buffer);
+			return YAMNL.Play.Serverbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
-				case PacketTeleportConfirm p_0x00: new Mine.Net.Play.Serverbound.Packet("teleport_confirm", p_0x00!).Write(buffer); break;
-				case PacketQueryBlockNbt p_0x01: new Mine.Net.Play.Serverbound.Packet("query_block_nbt", p_0x01!).Write(buffer); break;
-				case PacketSetDifficulty p_0x02: new Mine.Net.Play.Serverbound.Packet("set_difficulty", p_0x02!).Write(buffer); break;
-				case PacketMessageAcknowledgement p_0x03: new Mine.Net.Play.Serverbound.Packet("message_acknowledgement", p_0x03!).Write(buffer); break;
-				case PacketChatCommand p_0x04: new Mine.Net.Play.Serverbound.Packet("chat_command", p_0x04!).Write(buffer); break;
-				case PacketChatMessage p_0x05: new Mine.Net.Play.Serverbound.Packet("chat_message", p_0x05!).Write(buffer); break;
-				case PacketChatPreview p_0x06: new Mine.Net.Play.Serverbound.Packet("chat_preview", p_0x06!).Write(buffer); break;
-				case PacketClientCommand p_0x07: new Mine.Net.Play.Serverbound.Packet("client_command", p_0x07!).Write(buffer); break;
-				case PacketSettings p_0x08: new Mine.Net.Play.Serverbound.Packet("settings", p_0x08!).Write(buffer); break;
-				case PacketTabComplete p_0x09: new Mine.Net.Play.Serverbound.Packet("tab_complete", p_0x09!).Write(buffer); break;
-				case PacketEnchantItem p_0x0A: new Mine.Net.Play.Serverbound.Packet("enchant_item", p_0x0A!).Write(buffer); break;
-				case PacketWindowClick p_0x0B: new Mine.Net.Play.Serverbound.Packet("window_click", p_0x0B!).Write(buffer); break;
-				case PacketCloseWindow p_0x0C: new Mine.Net.Play.Serverbound.Packet("close_window", p_0x0C!).Write(buffer); break;
-				case PacketCustomPayload p_0x0D: new Mine.Net.Play.Serverbound.Packet("custom_payload", p_0x0D!).Write(buffer); break;
-				case PacketEditBook p_0x0E: new Mine.Net.Play.Serverbound.Packet("edit_book", p_0x0E!).Write(buffer); break;
-				case PacketQueryEntityNbt p_0x0F: new Mine.Net.Play.Serverbound.Packet("query_entity_nbt", p_0x0F!).Write(buffer); break;
-				case PacketUseEntity p_0x10: new Mine.Net.Play.Serverbound.Packet("use_entity", p_0x10!).Write(buffer); break;
-				case PacketGenerateStructure p_0x11: new Mine.Net.Play.Serverbound.Packet("generate_structure", p_0x11!).Write(buffer); break;
-				case PacketKeepAlive p_0x12: new Mine.Net.Play.Serverbound.Packet("keep_alive", p_0x12!).Write(buffer); break;
-				case PacketLockDifficulty p_0x13: new Mine.Net.Play.Serverbound.Packet("lock_difficulty", p_0x13!).Write(buffer); break;
-				case PacketPosition p_0x14: new Mine.Net.Play.Serverbound.Packet("position", p_0x14!).Write(buffer); break;
-				case PacketPositionLook p_0x15: new Mine.Net.Play.Serverbound.Packet("position_look", p_0x15!).Write(buffer); break;
-				case PacketLook p_0x16: new Mine.Net.Play.Serverbound.Packet("look", p_0x16!).Write(buffer); break;
-				case PacketFlying p_0x17: new Mine.Net.Play.Serverbound.Packet("flying", p_0x17!).Write(buffer); break;
-				case PacketVehicleMove p_0x18: new Mine.Net.Play.Serverbound.Packet("vehicle_move", p_0x18!).Write(buffer); break;
-				case PacketSteerBoat p_0x19: new Mine.Net.Play.Serverbound.Packet("steer_boat", p_0x19!).Write(buffer); break;
-				case PacketPickItem p_0x1A: new Mine.Net.Play.Serverbound.Packet("pick_item", p_0x1A!).Write(buffer); break;
-				case PacketCraftRecipeRequest p_0x1B: new Mine.Net.Play.Serverbound.Packet("craft_recipe_request", p_0x1B!).Write(buffer); break;
-				case PacketAbilities p_0x1C: new Mine.Net.Play.Serverbound.Packet("abilities", p_0x1C!).Write(buffer); break;
-				case PacketBlockDig p_0x1D: new Mine.Net.Play.Serverbound.Packet("block_dig", p_0x1D!).Write(buffer); break;
-				case PacketEntityAction p_0x1E: new Mine.Net.Play.Serverbound.Packet("entity_action", p_0x1E!).Write(buffer); break;
-				case PacketSteerVehicle p_0x1F: new Mine.Net.Play.Serverbound.Packet("steer_vehicle", p_0x1F!).Write(buffer); break;
-				case PacketPong p_0x20: new Mine.Net.Play.Serverbound.Packet("pong", p_0x20!).Write(buffer); break;
-				case PacketRecipeBook p_0x21: new Mine.Net.Play.Serverbound.Packet("recipe_book", p_0x21!).Write(buffer); break;
-				case PacketDisplayedRecipe p_0x22: new Mine.Net.Play.Serverbound.Packet("displayed_recipe", p_0x22!).Write(buffer); break;
-				case PacketNameItem p_0x23: new Mine.Net.Play.Serverbound.Packet("name_item", p_0x23!).Write(buffer); break;
-				case PacketResourcePackReceive p_0x24: new Mine.Net.Play.Serverbound.Packet("resource_pack_receive", p_0x24!).Write(buffer); break;
-				case PacketAdvancementTab p_0x25: new Mine.Net.Play.Serverbound.Packet("advancement_tab", p_0x25!).Write(buffer); break;
-				case PacketSelectTrade p_0x26: new Mine.Net.Play.Serverbound.Packet("select_trade", p_0x26!).Write(buffer); break;
-				case PacketSetBeaconEffect p_0x27: new Mine.Net.Play.Serverbound.Packet("set_beacon_effect", p_0x27!).Write(buffer); break;
-				case PacketHeldItemSlot p_0x28: new Mine.Net.Play.Serverbound.Packet("held_item_slot", p_0x28!).Write(buffer); break;
-				case PacketUpdateCommandBlock p_0x29: new Mine.Net.Play.Serverbound.Packet("update_command_block", p_0x29!).Write(buffer); break;
-				case PacketUpdateCommandBlockMinecart p_0x2A: new Mine.Net.Play.Serverbound.Packet("update_command_block_minecart", p_0x2A!).Write(buffer); break;
-				case PacketSetCreativeSlot p_0x2B: new Mine.Net.Play.Serverbound.Packet("set_creative_slot", p_0x2B!).Write(buffer); break;
-				case PacketUpdateJigsawBlock p_0x2C: new Mine.Net.Play.Serverbound.Packet("update_jigsaw_block", p_0x2C!).Write(buffer); break;
-				case PacketUpdateStructureBlock p_0x2D: new Mine.Net.Play.Serverbound.Packet("update_structure_block", p_0x2D!).Write(buffer); break;
-				case PacketUpdateSign p_0x2E: new Mine.Net.Play.Serverbound.Packet("update_sign", p_0x2E!).Write(buffer); break;
-				case PacketArmAnimation p_0x2F: new Mine.Net.Play.Serverbound.Packet("arm_animation", p_0x2F!).Write(buffer); break;
-				case PacketSpectate p_0x30: new Mine.Net.Play.Serverbound.Packet("spectate", p_0x30!).Write(buffer); break;
-				case PacketBlockPlace p_0x31: new Mine.Net.Play.Serverbound.Packet("block_place", p_0x31!).Write(buffer); break;
-				case PacketUseItem p_0x32: new Mine.Net.Play.Serverbound.Packet("use_item", p_0x32!).Write(buffer); break;
+				case PacketTeleportConfirm p_0x00: new YAMNL.Play.Serverbound.Packet("teleport_confirm", p_0x00!).Write(buffer); break;
+				case PacketQueryBlockNbt p_0x01: new YAMNL.Play.Serverbound.Packet("query_block_nbt", p_0x01!).Write(buffer); break;
+				case PacketSetDifficulty p_0x02: new YAMNL.Play.Serverbound.Packet("set_difficulty", p_0x02!).Write(buffer); break;
+				case PacketMessageAcknowledgement p_0x03: new YAMNL.Play.Serverbound.Packet("message_acknowledgement", p_0x03!).Write(buffer); break;
+				case PacketChatCommand p_0x04: new YAMNL.Play.Serverbound.Packet("chat_command", p_0x04!).Write(buffer); break;
+				case PacketChatMessage p_0x05: new YAMNL.Play.Serverbound.Packet("chat_message", p_0x05!).Write(buffer); break;
+				case PacketChatPreview p_0x06: new YAMNL.Play.Serverbound.Packet("chat_preview", p_0x06!).Write(buffer); break;
+				case PacketClientCommand p_0x07: new YAMNL.Play.Serverbound.Packet("client_command", p_0x07!).Write(buffer); break;
+				case PacketSettings p_0x08: new YAMNL.Play.Serverbound.Packet("settings", p_0x08!).Write(buffer); break;
+				case PacketTabComplete p_0x09: new YAMNL.Play.Serverbound.Packet("tab_complete", p_0x09!).Write(buffer); break;
+				case PacketEnchantItem p_0x0A: new YAMNL.Play.Serverbound.Packet("enchant_item", p_0x0A!).Write(buffer); break;
+				case PacketWindowClick p_0x0B: new YAMNL.Play.Serverbound.Packet("window_click", p_0x0B!).Write(buffer); break;
+				case PacketCloseWindow p_0x0C: new YAMNL.Play.Serverbound.Packet("close_window", p_0x0C!).Write(buffer); break;
+				case PacketCustomPayload p_0x0D: new YAMNL.Play.Serverbound.Packet("custom_payload", p_0x0D!).Write(buffer); break;
+				case PacketEditBook p_0x0E: new YAMNL.Play.Serverbound.Packet("edit_book", p_0x0E!).Write(buffer); break;
+				case PacketQueryEntityNbt p_0x0F: new YAMNL.Play.Serverbound.Packet("query_entity_nbt", p_0x0F!).Write(buffer); break;
+				case PacketUseEntity p_0x10: new YAMNL.Play.Serverbound.Packet("use_entity", p_0x10!).Write(buffer); break;
+				case PacketGenerateStructure p_0x11: new YAMNL.Play.Serverbound.Packet("generate_structure", p_0x11!).Write(buffer); break;
+				case PacketKeepAlive p_0x12: new YAMNL.Play.Serverbound.Packet("keep_alive", p_0x12!).Write(buffer); break;
+				case PacketLockDifficulty p_0x13: new YAMNL.Play.Serverbound.Packet("lock_difficulty", p_0x13!).Write(buffer); break;
+				case PacketPosition p_0x14: new YAMNL.Play.Serverbound.Packet("position", p_0x14!).Write(buffer); break;
+				case PacketPositionLook p_0x15: new YAMNL.Play.Serverbound.Packet("position_look", p_0x15!).Write(buffer); break;
+				case PacketLook p_0x16: new YAMNL.Play.Serverbound.Packet("look", p_0x16!).Write(buffer); break;
+				case PacketFlying p_0x17: new YAMNL.Play.Serverbound.Packet("flying", p_0x17!).Write(buffer); break;
+				case PacketVehicleMove p_0x18: new YAMNL.Play.Serverbound.Packet("vehicle_move", p_0x18!).Write(buffer); break;
+				case PacketSteerBoat p_0x19: new YAMNL.Play.Serverbound.Packet("steer_boat", p_0x19!).Write(buffer); break;
+				case PacketPickItem p_0x1A: new YAMNL.Play.Serverbound.Packet("pick_item", p_0x1A!).Write(buffer); break;
+				case PacketCraftRecipeRequest p_0x1B: new YAMNL.Play.Serverbound.Packet("craft_recipe_request", p_0x1B!).Write(buffer); break;
+				case PacketAbilities p_0x1C: new YAMNL.Play.Serverbound.Packet("abilities", p_0x1C!).Write(buffer); break;
+				case PacketBlockDig p_0x1D: new YAMNL.Play.Serverbound.Packet("block_dig", p_0x1D!).Write(buffer); break;
+				case PacketEntityAction p_0x1E: new YAMNL.Play.Serverbound.Packet("entity_action", p_0x1E!).Write(buffer); break;
+				case PacketSteerVehicle p_0x1F: new YAMNL.Play.Serverbound.Packet("steer_vehicle", p_0x1F!).Write(buffer); break;
+				case PacketPong p_0x20: new YAMNL.Play.Serverbound.Packet("pong", p_0x20!).Write(buffer); break;
+				case PacketRecipeBook p_0x21: new YAMNL.Play.Serverbound.Packet("recipe_book", p_0x21!).Write(buffer); break;
+				case PacketDisplayedRecipe p_0x22: new YAMNL.Play.Serverbound.Packet("displayed_recipe", p_0x22!).Write(buffer); break;
+				case PacketNameItem p_0x23: new YAMNL.Play.Serverbound.Packet("name_item", p_0x23!).Write(buffer); break;
+				case PacketResourcePackReceive p_0x24: new YAMNL.Play.Serverbound.Packet("resource_pack_receive", p_0x24!).Write(buffer); break;
+				case PacketAdvancementTab p_0x25: new YAMNL.Play.Serverbound.Packet("advancement_tab", p_0x25!).Write(buffer); break;
+				case PacketSelectTrade p_0x26: new YAMNL.Play.Serverbound.Packet("select_trade", p_0x26!).Write(buffer); break;
+				case PacketSetBeaconEffect p_0x27: new YAMNL.Play.Serverbound.Packet("set_beacon_effect", p_0x27!).Write(buffer); break;
+				case PacketHeldItemSlot p_0x28: new YAMNL.Play.Serverbound.Packet("held_item_slot", p_0x28!).Write(buffer); break;
+				case PacketUpdateCommandBlock p_0x29: new YAMNL.Play.Serverbound.Packet("update_command_block", p_0x29!).Write(buffer); break;
+				case PacketUpdateCommandBlockMinecart p_0x2A: new YAMNL.Play.Serverbound.Packet("update_command_block_minecart", p_0x2A!).Write(buffer); break;
+				case PacketSetCreativeSlot p_0x2B: new YAMNL.Play.Serverbound.Packet("set_creative_slot", p_0x2B!).Write(buffer); break;
+				case PacketUpdateJigsawBlock p_0x2C: new YAMNL.Play.Serverbound.Packet("update_jigsaw_block", p_0x2C!).Write(buffer); break;
+				case PacketUpdateStructureBlock p_0x2D: new YAMNL.Play.Serverbound.Packet("update_structure_block", p_0x2D!).Write(buffer); break;
+				case PacketUpdateSign p_0x2E: new YAMNL.Play.Serverbound.Packet("update_sign", p_0x2E!).Write(buffer); break;
+				case PacketArmAnimation p_0x2F: new YAMNL.Play.Serverbound.Packet("arm_animation", p_0x2F!).Write(buffer); break;
+				case PacketSpectate p_0x30: new YAMNL.Play.Serverbound.Packet("spectate", p_0x30!).Write(buffer); break;
+				case PacketBlockPlace p_0x31: new YAMNL.Play.Serverbound.Packet("block_place", p_0x31!).Write(buffer); break;
+				case PacketUseItem p_0x32: new YAMNL.Play.Serverbound.Packet("use_item", p_0x32!).Write(buffer); break;
 				default: throw new Exception($"Play cannot write packet of type {packet.GetType().FullName}");
 			}
 		}
@@ -3679,7 +3679,7 @@ namespace YAMNL.Play.Clientbound
 			((Action<PacketBuffer, EntriesElementContainer[]>)((buffer, value) => buffer.WriteArray(value, ((Action<PacketBuffer, EntriesElementContainer>)((buffer, value) => value.Write(buffer ))), ((Action<PacketBuffer, VarInt>)((buffer, value) => buffer.WriteVarInt(value))))))(buffer, Entries);
 		}
 		public static PacketStatistics Read(PacketBuffer buffer ) {
-			EntriesElementContainer[] @entries = ((Func<PacketBuffer, EntriesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, EntriesElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketStatistics.EntriesElementContainer.Read(buffer ))))))(buffer);
+			EntriesElementContainer[] @entries = ((Func<PacketBuffer, EntriesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, EntriesElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketStatistics.EntriesElementContainer.Read(buffer ))))))(buffer);
 			return new PacketStatistics(@entries);
 		}
 	}
@@ -3785,7 +3785,7 @@ namespace YAMNL.Play.Clientbound
 					public static DisplayDataContainer Read(PacketBuffer buffer ) {
 						string @title = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
 						string @description = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-						Slot @icon = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+						Slot @icon = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 						VarInt @frameType = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 						FlagsBitfield @flags = ((Func<PacketBuffer, FlagsBitfield>)((buffer) => new FlagsBitfield(((Func<PacketBuffer, uint>)((buffer) => buffer.ReadU32()))(buffer))))(buffer);
 						BackgroundTextureSwitch @backgroundTexture = ((Func<PacketBuffer, BackgroundTextureSwitch>)((buffer) => BackgroundTextureSwitch.Read(buffer, @flags.HasBackgroundTexture)))(buffer);
@@ -3829,8 +3829,8 @@ namespace YAMNL.Play.Clientbound
 				}
 				public static ValueContainer Read(PacketBuffer buffer ) {
 					string? @parentId = ((Func<PacketBuffer, string?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))))))))(buffer);
-					DisplayDataContainer? @displayData = ((Func<PacketBuffer, DisplayDataContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, DisplayDataContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.ValueContainer.DisplayDataContainer.Read(buffer ))))))(buffer);
-					CriteriaElementContainer[] @criteria = ((Func<PacketBuffer, CriteriaElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, CriteriaElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.ValueContainer.CriteriaElementContainer.Read(buffer ))))))(buffer);
+					DisplayDataContainer? @displayData = ((Func<PacketBuffer, DisplayDataContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, DisplayDataContainer>)((buffer) => YAMNL.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.ValueContainer.DisplayDataContainer.Read(buffer ))))))(buffer);
+					CriteriaElementContainer[] @criteria = ((Func<PacketBuffer, CriteriaElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, CriteriaElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.ValueContainer.CriteriaElementContainer.Read(buffer ))))))(buffer);
 					string[][] @requirements = ((Func<PacketBuffer, string[][]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, string[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))))))))(buffer);
 					return new ValueContainer(@parentId, @displayData, @criteria, @requirements);
 				}
@@ -3847,7 +3847,7 @@ namespace YAMNL.Play.Clientbound
 			}
 			public static AdvancementMappingElementContainer Read(PacketBuffer buffer ) {
 				string @key = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-				ValueContainer @value = ((Func<PacketBuffer, ValueContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.ValueContainer.Read(buffer )))(buffer);
+				ValueContainer @value = ((Func<PacketBuffer, ValueContainer>)((buffer) => YAMNL.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.ValueContainer.Read(buffer )))(buffer);
 				return new AdvancementMappingElementContainer(@key, @value);
 			}
 		}
@@ -3881,7 +3881,7 @@ namespace YAMNL.Play.Clientbound
 			}
 			public static ProgressMappingElementContainer Read(PacketBuffer buffer ) {
 				string @key = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-				ValueElementContainer[] @value = ((Func<PacketBuffer, ValueElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ValueElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketAdvancements.ProgressMappingElementContainer.ValueElementContainer.Read(buffer ))))))(buffer);
+				ValueElementContainer[] @value = ((Func<PacketBuffer, ValueElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ValueElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketAdvancements.ProgressMappingElementContainer.ValueElementContainer.Read(buffer ))))))(buffer);
 				return new ProgressMappingElementContainer(@key, @value);
 			}
 		}
@@ -3903,9 +3903,9 @@ namespace YAMNL.Play.Clientbound
 		}
 		public static PacketAdvancements Read(PacketBuffer buffer ) {
 			bool @reset = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
-			AdvancementMappingElementContainer[] @advancementMapping = ((Func<PacketBuffer, AdvancementMappingElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, AdvancementMappingElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.Read(buffer ))))))(buffer);
+			AdvancementMappingElementContainer[] @advancementMapping = ((Func<PacketBuffer, AdvancementMappingElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, AdvancementMappingElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketAdvancements.AdvancementMappingElementContainer.Read(buffer ))))))(buffer);
 			string[] @identifiers = ((Func<PacketBuffer, string[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))))))))(buffer);
-			ProgressMappingElementContainer[] @progressMapping = ((Func<PacketBuffer, ProgressMappingElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ProgressMappingElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketAdvancements.ProgressMappingElementContainer.Read(buffer ))))))(buffer);
+			ProgressMappingElementContainer[] @progressMapping = ((Func<PacketBuffer, ProgressMappingElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ProgressMappingElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketAdvancements.ProgressMappingElementContainer.Read(buffer ))))))(buffer);
 			return new PacketAdvancements(@reset, @advancementMapping, @identifiers, @progressMapping);
 		}
 	}
@@ -4217,7 +4217,7 @@ namespace YAMNL.Play.Clientbound
 			VarInt @transactionId = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			VarInt @start = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			VarInt @length = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			MatchesElementContainer[] @matches = ((Func<PacketBuffer, MatchesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, MatchesElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketTabComplete.MatchesElementContainer.Read(buffer ))))))(buffer);
+			MatchesElementContainer[] @matches = ((Func<PacketBuffer, MatchesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, MatchesElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketTabComplete.MatchesElementContainer.Read(buffer ))))))(buffer);
 			return new PacketTabComplete(@transactionId, @start, @length, @matches);
 		}
 	}
@@ -4233,7 +4233,7 @@ namespace YAMNL.Play.Clientbound
 			((Action<PacketBuffer, VarInt>)((buffer, value) => buffer.WriteVarInt(value)))(buffer, RootIndex);
 		}
 		public static PacketDeclareCommands Read(PacketBuffer buffer ) {
-			CommandNode[] @nodes = ((Func<PacketBuffer, CommandNode[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, CommandNode>)((buffer) => Mine.Net.CommandNode.Read(buffer ))))))(buffer);
+			CommandNode[] @nodes = ((Func<PacketBuffer, CommandNode[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, CommandNode>)((buffer) => YAMNL.CommandNode.Read(buffer ))))))(buffer);
 			VarInt @rootIndex = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			return new PacketDeclareCommands(@nodes, @rootIndex);
 		}
@@ -4445,8 +4445,8 @@ namespace YAMNL.Play.Clientbound
 		public static PacketWindowItems Read(PacketBuffer buffer ) {
 			byte @windowId = ((Func<PacketBuffer, byte>)((buffer) => buffer.ReadU8()))(buffer);
 			VarInt @stateId = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			Slot[] @items = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer ))))))(buffer);
-			Slot @carriedItem = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+			Slot[] @items = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer ))))))(buffer);
+			Slot @carriedItem = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 			return new PacketWindowItems(@windowId, @stateId, @items, @carriedItem);
 		}
 	}
@@ -4492,7 +4492,7 @@ namespace YAMNL.Play.Clientbound
 			sbyte @windowId = ((Func<PacketBuffer, sbyte>)((buffer) => buffer.ReadI8()))(buffer);
 			VarInt @stateId = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			short @slot = ((Func<PacketBuffer, short>)((buffer) => buffer.ReadI16()))(buffer);
-			Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+			Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 			return new PacketSetSlot(@windowId, @stateId, @slot, @item);
 		}
 	}
@@ -4686,7 +4686,7 @@ namespace YAMNL.Play.Clientbound
 			float @y = ((Func<PacketBuffer, float>)((buffer) => buffer.ReadF32()))(buffer);
 			float @z = ((Func<PacketBuffer, float>)((buffer) => buffer.ReadF32()))(buffer);
 			float @radius = ((Func<PacketBuffer, float>)((buffer) => buffer.ReadF32()))(buffer);
-			AffectedBlockOffsetsElementContainer[] @affectedBlockOffsets = ((Func<PacketBuffer, AffectedBlockOffsetsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, AffectedBlockOffsetsElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketExplosion.AffectedBlockOffsetsElementContainer.Read(buffer ))))))(buffer);
+			AffectedBlockOffsetsElementContainer[] @affectedBlockOffsets = ((Func<PacketBuffer, AffectedBlockOffsetsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, AffectedBlockOffsetsElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketExplosion.AffectedBlockOffsetsElementContainer.Read(buffer ))))))(buffer);
 			float @playerMotionX = ((Func<PacketBuffer, float>)((buffer) => buffer.ReadF32()))(buffer);
 			float @playerMotionY = ((Func<PacketBuffer, float>)((buffer) => buffer.ReadF32()))(buffer);
 			float @playerMotionZ = ((Func<PacketBuffer, float>)((buffer) => buffer.ReadF32()))(buffer);
@@ -4807,7 +4807,7 @@ namespace YAMNL.Play.Clientbound
 			int @z = ((Func<PacketBuffer, int>)((buffer) => buffer.ReadI32()))(buffer);
 			NbtCompound @heightmaps = ((Func<PacketBuffer, NbtCompound>)((buffer) => buffer.ReadNbt()))(buffer);
 			byte[] @chunkData = ((Func<PacketBuffer, byte[]>)((buffer) => buffer.ReadBuffer(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer))))(buffer);
-			ChunkBlockEntity[] @blockEntities = ((Func<PacketBuffer, ChunkBlockEntity[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ChunkBlockEntity>)((buffer) => Mine.Net.ChunkBlockEntity.Read(buffer ))))))(buffer);
+			ChunkBlockEntity[] @blockEntities = ((Func<PacketBuffer, ChunkBlockEntity[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ChunkBlockEntity>)((buffer) => YAMNL.ChunkBlockEntity.Read(buffer ))))))(buffer);
 			bool @trustEdges = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
 			long[] @skyLightMask = ((Func<PacketBuffer, long[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, long>)((buffer) => buffer.ReadI64())))))(buffer);
 			long[] @blockLightMask = ((Func<PacketBuffer, long[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, long>)((buffer) => buffer.ReadI64())))))(buffer);
@@ -5031,7 +5031,7 @@ namespace YAMNL.Play.Clientbound
 			bool @enableRespawnScreen = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
 			bool @isDebug = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
 			bool @isFlat = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
-			DeathContainer? @death = ((Func<PacketBuffer, DeathContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, DeathContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketLogin.DeathContainer.Read(buffer ))))))(buffer);
+			DeathContainer? @death = ((Func<PacketBuffer, DeathContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, DeathContainer>)((buffer) => YAMNL.Play.Clientbound.PacketLogin.DeathContainer.Read(buffer ))))))(buffer);
 			return new PacketLogin(@entityId, @isHardcore, @gameMode, @previousGameMode, @worldNames, @dimensionCodec, @worldType, @worldName, @hashedSeed, @maxPlayers, @viewDistance, @simulationDistance, @reducedDebugInfo, @enableRespawnScreen, @isDebug, @isFlat, @death);
 		}
 	}
@@ -5176,7 +5176,7 @@ namespace YAMNL.Play.Clientbound
 			VarInt @itemDamage = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			sbyte @scale = ((Func<PacketBuffer, sbyte>)((buffer) => buffer.ReadI8()))(buffer);
 			bool @locked = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
-			IconsElementContainer[]? @icons = ((Func<PacketBuffer, IconsElementContainer[]?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, IconsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, IconsElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketMap.IconsElementContainer.Read(buffer )))))))))(buffer);
+			IconsElementContainer[]? @icons = ((Func<PacketBuffer, IconsElementContainer[]?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, IconsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, IconsElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketMap.IconsElementContainer.Read(buffer )))))))))(buffer);
 			byte @columns = ((Func<PacketBuffer, byte>)((buffer) => buffer.ReadU8()))(buffer);
 			RowsSwitch @rows = ((Func<PacketBuffer, RowsSwitch>)((buffer) => RowsSwitch.Read(buffer, @columns)))(buffer);
 			XSwitch @x = ((Func<PacketBuffer, XSwitch>)((buffer) => XSwitch.Read(buffer, @columns)))(buffer);
@@ -5222,9 +5222,9 @@ namespace YAMNL.Play.Clientbound
 				((Action<PacketBuffer, int>)((buffer, value) => buffer.WriteI32(value)))(buffer, this.Demand);
 			}
 			public static TradesElementContainer Read(PacketBuffer buffer ) {
-				Slot @inputItem1 = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
-				Slot @outputItem = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
-				Slot @inputItem2 = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+				Slot @inputItem1 = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
+				Slot @outputItem = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
+				Slot @inputItem2 = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 				bool @tradeDisabled = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
 				int @nbTradeUses = ((Func<PacketBuffer, int>)((buffer) => buffer.ReadI32()))(buffer);
 				int @maximumNbTradeUses = ((Func<PacketBuffer, int>)((buffer) => buffer.ReadI32()))(buffer);
@@ -5259,7 +5259,7 @@ namespace YAMNL.Play.Clientbound
 		}
 		public static PacketTradeList Read(PacketBuffer buffer ) {
 			VarInt @windowId = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			TradesElementContainer[] @trades = ((Func<PacketBuffer, TradesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, TradesElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketTradeList.TradesElementContainer.Read(buffer ))))))(buffer);
+			TradesElementContainer[] @trades = ((Func<PacketBuffer, TradesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, TradesElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketTradeList.TradesElementContainer.Read(buffer ))))))(buffer);
 			VarInt @villagerLevel = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			VarInt @experience = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			bool @isRegularVillager = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
@@ -5527,7 +5527,7 @@ namespace YAMNL.Play.Clientbound
 			string? @formattedMessage = ((Func<PacketBuffer, string?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))))))))(buffer);
 			long @timestamp = ((Func<PacketBuffer, long>)((buffer) => buffer.ReadI64()))(buffer);
 			long @salt = ((Func<PacketBuffer, long>)((buffer) => buffer.ReadI64()))(buffer);
-			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => Mine.Net.PreviousMessagesElement.Read(buffer ))))))(buffer);
+			PreviousMessagesElement[] @previousMessages = ((Func<PacketBuffer, PreviousMessagesElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PreviousMessagesElement>)((buffer) => YAMNL.PreviousMessagesElement.Read(buffer ))))))(buffer);
 			string? @unsignedContent = ((Func<PacketBuffer, string?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))))))))(buffer);
 			VarInt @filterType = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 			FilterTypeMaskSwitch @filterTypeMask = ((Func<PacketBuffer, FilterTypeMaskSwitch>)((buffer) => FilterTypeMaskSwitch.Read(buffer, @filterType)))(buffer);
@@ -5641,7 +5641,7 @@ namespace YAMNL.Play.Clientbound
 				}
 				public static PropertiesSwitch Read(PacketBuffer buffer, VarInt state, VarInt @action) {
 					object? value = state.Value switch {
-						0 => ((Func<PacketBuffer, PropertiesSwitchState0ElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PropertiesSwitchState0ElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketPlayerInfo.DataElementContainer.PropertiesSwitch.PropertiesSwitchState0ElementContainer.Read(buffer ))))))(buffer),
+						0 => ((Func<PacketBuffer, PropertiesSwitchState0ElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PropertiesSwitchState0ElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketPlayerInfo.DataElementContainer.PropertiesSwitch.PropertiesSwitchState0ElementContainer.Read(buffer ))))))(buffer),
 						_ => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer)
 					};
 					return new PropertiesSwitch(value);
@@ -5752,7 +5752,7 @@ namespace YAMNL.Play.Clientbound
 				}
 				public static CryptoSwitch Read(PacketBuffer buffer, VarInt state, VarInt @action) {
 					object? value = state.Value switch {
-						0 => ((Func<PacketBuffer, CryptoSwitchState0Container?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, CryptoSwitchState0Container>)((buffer) => Mine.Net.Play.Clientbound.PacketPlayerInfo.DataElementContainer.CryptoSwitch.CryptoSwitchState0Container.Read(buffer ))))))(buffer),
+						0 => ((Func<PacketBuffer, CryptoSwitchState0Container?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, CryptoSwitchState0Container>)((buffer) => YAMNL.Play.Clientbound.PacketPlayerInfo.DataElementContainer.CryptoSwitch.CryptoSwitchState0Container.Read(buffer ))))))(buffer),
 						_ => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer)
 					};
 					return new CryptoSwitch(value);
@@ -5808,7 +5808,7 @@ namespace YAMNL.Play.Clientbound
 		}
 		public static PacketPlayerInfo Read(PacketBuffer buffer ) {
 			VarInt @action = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			DataElementContainer[] @data = ((Func<PacketBuffer, DataElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, DataElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketPlayerInfo.DataElementContainer.Read(buffer , @action))))))(buffer);
+			DataElementContainer[] @data = ((Func<PacketBuffer, DataElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, DataElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketPlayerInfo.DataElementContainer.Read(buffer , @action))))))(buffer);
 			return new PacketPlayerInfo(@action, @data);
 		}
 	}
@@ -6040,7 +6040,7 @@ namespace YAMNL.Play.Clientbound
 			bool @isDebug = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
 			bool @isFlat = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
 			bool @copyMetadata = ((Func<PacketBuffer, bool>)((buffer) => buffer.ReadBool()))(buffer);
-			DeathContainer? @death = ((Func<PacketBuffer, DeathContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, DeathContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketRespawn.DeathContainer.Read(buffer ))))))(buffer);
+			DeathContainer? @death = ((Func<PacketBuffer, DeathContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, DeathContainer>)((buffer) => YAMNL.Play.Clientbound.PacketRespawn.DeathContainer.Read(buffer ))))))(buffer);
 			return new PacketRespawn(@dimension, @worldName, @hashedSeed, @gamemode, @previousGamemode, @isDebug, @isFlat, @copyMetadata, @death);
 		}
 	}
@@ -6160,7 +6160,7 @@ namespace YAMNL.Play.Clientbound
 		}
 		public static PacketEntityMetadata Read(PacketBuffer buffer ) {
 			VarInt @entityId = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			EntityMetadataLoopElement[] @metadata = ((Func<PacketBuffer, EntityMetadataLoopElement[]>)((buffer) => buffer.ReadEntityMetadataLoop(255, ((Func<PacketBuffer, EntityMetadataLoopElement>)((buffer) => Mine.Net.EntityMetadataLoopElement.Read(buffer ))))))(buffer);
+			EntityMetadataLoopElement[] @metadata = ((Func<PacketBuffer, EntityMetadataLoopElement[]>)((buffer) => buffer.ReadEntityMetadataLoop(255, ((Func<PacketBuffer, EntityMetadataLoopElement>)((buffer) => YAMNL.EntityMetadataLoopElement.Read(buffer ))))))(buffer);
 			return new PacketEntityMetadata(@entityId, @metadata);
 		}
 	}
@@ -6220,7 +6220,7 @@ namespace YAMNL.Play.Clientbound
 			}
 			public static EquipmentsLoopElementContainer Read(PacketBuffer buffer ) {
 				sbyte @slot = ((Func<PacketBuffer, sbyte>)((buffer) => buffer.ReadI8()))(buffer);
-				Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+				Slot @item = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 				return new EquipmentsLoopElementContainer(@slot, @item);
 			}
 		}
@@ -6236,7 +6236,7 @@ namespace YAMNL.Play.Clientbound
 		}
 		public static PacketEntityEquipment Read(PacketBuffer buffer ) {
 			VarInt @entityId = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			EquipmentsLoopElementContainer[] @equipments = ((Func<PacketBuffer, EquipmentsLoopElementContainer[]>)((buffer) => buffer.ReadTopBitSetTerminatedArray(((Func<PacketBuffer, EquipmentsLoopElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityEquipment.EquipmentsLoopElementContainer.Read(buffer ))))))(buffer);
+			EquipmentsLoopElementContainer[] @equipments = ((Func<PacketBuffer, EquipmentsLoopElementContainer[]>)((buffer) => buffer.ReadTopBitSetTerminatedArray(((Func<PacketBuffer, EquipmentsLoopElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketEntityEquipment.EquipmentsLoopElementContainer.Read(buffer ))))))(buffer);
 			return new PacketEntityEquipment(@entityId, @equipments);
 		}
 	}
@@ -6951,7 +6951,7 @@ namespace YAMNL.Play.Clientbound
 			public static PropertiesElementContainer Read(PacketBuffer buffer ) {
 				string @key = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
 				double @value = ((Func<PacketBuffer, double>)((buffer) => buffer.ReadF64()))(buffer);
-				ModifiersElementContainer[] @modifiers = ((Func<PacketBuffer, ModifiersElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ModifiersElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityUpdateAttributes.PropertiesElementContainer.ModifiersElementContainer.Read(buffer ))))))(buffer);
+				ModifiersElementContainer[] @modifiers = ((Func<PacketBuffer, ModifiersElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, ModifiersElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketEntityUpdateAttributes.PropertiesElementContainer.ModifiersElementContainer.Read(buffer ))))))(buffer);
 				return new PropertiesElementContainer(@key, @value, @modifiers);
 			}
 		}
@@ -6967,7 +6967,7 @@ namespace YAMNL.Play.Clientbound
 		}
 		public static PacketEntityUpdateAttributes Read(PacketBuffer buffer ) {
 			VarInt @entityId = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
-			PropertiesElementContainer[] @properties = ((Func<PacketBuffer, PropertiesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PropertiesElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityUpdateAttributes.PropertiesElementContainer.Read(buffer ))))))(buffer);
+			PropertiesElementContainer[] @properties = ((Func<PacketBuffer, PropertiesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PropertiesElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketEntityUpdateAttributes.PropertiesElementContainer.Read(buffer ))))))(buffer);
 			return new PacketEntityUpdateAttributes(@entityId, @properties);
 		}
 	}
@@ -7061,8 +7061,8 @@ namespace YAMNL.Play.Clientbound
 					}
 					public static DataswitchstateminecraftCraftingShapelessContainer Read(PacketBuffer buffer ) {
 						string @group = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-						Slot[][] @ingredients = ((Func<PacketBuffer, Slot[][]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))))))))(buffer);
-						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+						Slot[][] @ingredients = ((Func<PacketBuffer, Slot[][]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))))))))(buffer);
+						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 						return new DataswitchstateminecraftCraftingShapelessContainer(@group, @ingredients, @result);
 					}
 				}
@@ -7090,8 +7090,8 @@ namespace YAMNL.Play.Clientbound
 						VarInt @width = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 						VarInt @height = ((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer);
 						string @group = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-						Slot[][][] @ingredients = ((Func<PacketBuffer, Slot[][][]>)((buffer) => buffer.ReadArray(@width, ((Func<PacketBuffer, Slot[][]>)((buffer) => buffer.ReadArray(@height, ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer ))))))))))))(buffer);
-						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+						Slot[][][] @ingredients = ((Func<PacketBuffer, Slot[][][]>)((buffer) => buffer.ReadArray(@width, ((Func<PacketBuffer, Slot[][]>)((buffer) => buffer.ReadArray(@height, ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer ))))))))))))(buffer);
+						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 						return new DataswitchstateminecraftCraftingShapedContainer(@width, @height, @group, @ingredients, @result);
 					}
 				}
@@ -7111,8 +7111,8 @@ namespace YAMNL.Play.Clientbound
 					}
 					public static DataSwitchStateminecraftStonecuttingContainer Read(PacketBuffer buffer ) {
 						string @group = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-						Slot[] @ingredient = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer ))))))(buffer);
-						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+						Slot[] @ingredient = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer ))))))(buffer);
+						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 						return new DataSwitchStateminecraftStonecuttingContainer(@group, @ingredient, @result);
 					}
 				}
@@ -7131,9 +7131,9 @@ namespace YAMNL.Play.Clientbound
 						((Action<PacketBuffer, Slot>)((buffer, value) => value.Write(buffer )))(buffer, this.Result);
 					}
 					public static DataSwitchStateminecraftSmithingContainer Read(PacketBuffer buffer ) {
-						Slot[] @base = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer ))))))(buffer);
-						Slot[] @addition = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer ))))))(buffer);
-						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => Mine.Net.Slot.Read(buffer )))(buffer);
+						Slot[] @base = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer ))))))(buffer);
+						Slot[] @addition = ((Func<PacketBuffer, Slot[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer ))))))(buffer);
+						Slot @result = ((Func<PacketBuffer, Slot>)((buffer) => YAMNL.Slot.Read(buffer )))(buffer);
 						return new DataSwitchStateminecraftSmithingContainer(@base, @addition, @result);
 					}
 				}
@@ -7170,8 +7170,8 @@ namespace YAMNL.Play.Clientbound
 				}
 				public static DataSwitch Read(PacketBuffer buffer, string state) {
 					object? value = state switch {
-						"minecraft:crafting_shapeless" => ((Func<PacketBuffer, DataswitchstateminecraftCraftingShapelessContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataswitchstateminecraftCraftingShapelessContainer.Read(buffer )))(buffer),
-						"minecraft:crafting_shaped" => ((Func<PacketBuffer, DataswitchstateminecraftCraftingShapedContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataswitchstateminecraftCraftingShapedContainer.Read(buffer )))(buffer),
+						"minecraft:crafting_shapeless" => ((Func<PacketBuffer, DataswitchstateminecraftCraftingShapelessContainer>)((buffer) => YAMNL.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataswitchstateminecraftCraftingShapelessContainer.Read(buffer )))(buffer),
+						"minecraft:crafting_shaped" => ((Func<PacketBuffer, DataswitchstateminecraftCraftingShapedContainer>)((buffer) => YAMNL.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataswitchstateminecraftCraftingShapedContainer.Read(buffer )))(buffer),
 						"minecraft:crafting_special_armordye" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 						"minecraft:crafting_special_bookcloning" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 						"minecraft:crafting_special_mapcloning" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
@@ -7186,12 +7186,12 @@ namespace YAMNL.Play.Clientbound
 						"minecraft:crafting_special_shielddecoration" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 						"minecraft:crafting_special_shulkerboxcoloring" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
 						"minecraft:crafting_special_suspiciousstew" => ((Func<PacketBuffer, object?>)((buffer) => buffer.ReadVoid()))(buffer),
-						"minecraft:smelting" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => Mine.Net.MinecraftSmeltingFormat.Read(buffer )))(buffer),
-						"minecraft:blasting" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => Mine.Net.MinecraftSmeltingFormat.Read(buffer )))(buffer),
-						"minecraft:smoking" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => Mine.Net.MinecraftSmeltingFormat.Read(buffer )))(buffer),
-						"minecraft:campfire_cooking" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => Mine.Net.MinecraftSmeltingFormat.Read(buffer )))(buffer),
-						"minecraft:stonecutting" => ((Func<PacketBuffer, DataSwitchStateminecraftStonecuttingContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataSwitchStateminecraftStonecuttingContainer.Read(buffer )))(buffer),
-						"minecraft:smithing" => ((Func<PacketBuffer, DataSwitchStateminecraftSmithingContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataSwitchStateminecraftSmithingContainer.Read(buffer )))(buffer),
+						"minecraft:smelting" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => YAMNL.MinecraftSmeltingFormat.Read(buffer )))(buffer),
+						"minecraft:blasting" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => YAMNL.MinecraftSmeltingFormat.Read(buffer )))(buffer),
+						"minecraft:smoking" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => YAMNL.MinecraftSmeltingFormat.Read(buffer )))(buffer),
+						"minecraft:campfire_cooking" => ((Func<PacketBuffer, MinecraftSmeltingFormat>)((buffer) => YAMNL.MinecraftSmeltingFormat.Read(buffer )))(buffer),
+						"minecraft:stonecutting" => ((Func<PacketBuffer, DataSwitchStateminecraftStonecuttingContainer>)((buffer) => YAMNL.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataSwitchStateminecraftStonecuttingContainer.Read(buffer )))(buffer),
+						"minecraft:smithing" => ((Func<PacketBuffer, DataSwitchStateminecraftSmithingContainer>)((buffer) => YAMNL.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.DataSwitch.DataSwitchStateminecraftSmithingContainer.Read(buffer )))(buffer),
 						 _ => throw new Exception($"Invalid value: '{state}'")
 					};
 					return new DataSwitch(value);
@@ -7235,7 +7235,7 @@ namespace YAMNL.Play.Clientbound
 			((Action<PacketBuffer, RecipesElementContainer[]>)((buffer, value) => buffer.WriteArray(value, ((Action<PacketBuffer, RecipesElementContainer>)((buffer, value) => value.Write(buffer ))), ((Action<PacketBuffer, VarInt>)((buffer, value) => buffer.WriteVarInt(value))))))(buffer, this.Recipes);
 		}
 		public static PacketDeclareRecipes Read(PacketBuffer buffer ) {
-			RecipesElementContainer[] @recipes = ((Func<PacketBuffer, RecipesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, RecipesElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.Read(buffer ))))))(buffer);
+			RecipesElementContainer[] @recipes = ((Func<PacketBuffer, RecipesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, RecipesElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketDeclareRecipes.RecipesElementContainer.Read(buffer ))))))(buffer);
 			return new PacketDeclareRecipes(@recipes);
 		}
 	}
@@ -7253,7 +7253,7 @@ namespace YAMNL.Play.Clientbound
 			}
 			public static TagsElementContainer Read(PacketBuffer buffer ) {
 				string @tagType = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-				TagsElement[] @tags = ((Func<PacketBuffer, TagsElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, TagsElement>)((buffer) => Mine.Net.TagsElement.Read(buffer ))))))(buffer);
+				TagsElement[] @tags = ((Func<PacketBuffer, TagsElement[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, TagsElement>)((buffer) => YAMNL.TagsElement.Read(buffer ))))))(buffer);
 				return new TagsElementContainer(@tagType, @tags);
 			}
 		}
@@ -7265,7 +7265,7 @@ namespace YAMNL.Play.Clientbound
 			((Action<PacketBuffer, TagsElementContainer[]>)((buffer, value) => buffer.WriteArray(value, ((Action<PacketBuffer, TagsElementContainer>)((buffer, value) => value.Write(buffer ))), ((Action<PacketBuffer, VarInt>)((buffer, value) => buffer.WriteVarInt(value))))))(buffer, this.Tags);
 		}
 		public static PacketTags Read(PacketBuffer buffer ) {
-			TagsElementContainer[] @tags = ((Func<PacketBuffer, TagsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, TagsElementContainer>)((buffer) => Mine.Net.Play.Clientbound.PacketTags.TagsElementContainer.Read(buffer ))))))(buffer);
+			TagsElementContainer[] @tags = ((Func<PacketBuffer, TagsElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, TagsElementContainer>)((buffer) => YAMNL.Play.Clientbound.PacketTags.TagsElementContainer.Read(buffer ))))))(buffer);
 			return new PacketTags(@tags);
 		}
 	}
@@ -7645,114 +7645,114 @@ namespace YAMNL.Play.Clientbound
 			}
 			public static ParamsSwitch Read(PacketBuffer buffer, string state) {
 				object? value = state switch {
-					"spawn_entity" => ((Func<PacketBuffer, PacketSpawnEntity>)((buffer) => Mine.Net.Play.Clientbound.PacketSpawnEntity.Read(buffer )))(buffer),
-					"spawn_entity_experience_orb" => ((Func<PacketBuffer, PacketSpawnEntityExperienceOrb>)((buffer) => Mine.Net.Play.Clientbound.PacketSpawnEntityExperienceOrb.Read(buffer )))(buffer),
-					"named_entity_spawn" => ((Func<PacketBuffer, PacketNamedEntitySpawn>)((buffer) => Mine.Net.Play.Clientbound.PacketNamedEntitySpawn.Read(buffer )))(buffer),
-					"animation" => ((Func<PacketBuffer, PacketAnimation>)((buffer) => Mine.Net.Play.Clientbound.PacketAnimation.Read(buffer )))(buffer),
-					"statistics" => ((Func<PacketBuffer, PacketStatistics>)((buffer) => Mine.Net.Play.Clientbound.PacketStatistics.Read(buffer )))(buffer),
-					"acknowledge_player_digging" => ((Func<PacketBuffer, PacketAcknowledgePlayerDigging>)((buffer) => Mine.Net.Play.Clientbound.PacketAcknowledgePlayerDigging.Read(buffer )))(buffer),
-					"block_break_animation" => ((Func<PacketBuffer, PacketBlockBreakAnimation>)((buffer) => Mine.Net.Play.Clientbound.PacketBlockBreakAnimation.Read(buffer )))(buffer),
-					"tile_entity_data" => ((Func<PacketBuffer, PacketTileEntityData>)((buffer) => Mine.Net.Play.Clientbound.PacketTileEntityData.Read(buffer )))(buffer),
-					"block_action" => ((Func<PacketBuffer, PacketBlockAction>)((buffer) => Mine.Net.Play.Clientbound.PacketBlockAction.Read(buffer )))(buffer),
-					"block_change" => ((Func<PacketBuffer, PacketBlockChange>)((buffer) => Mine.Net.Play.Clientbound.PacketBlockChange.Read(buffer )))(buffer),
-					"boss_bar" => ((Func<PacketBuffer, PacketBossBar>)((buffer) => Mine.Net.Play.Clientbound.PacketBossBar.Read(buffer )))(buffer),
-					"difficulty" => ((Func<PacketBuffer, PacketDifficulty>)((buffer) => Mine.Net.Play.Clientbound.PacketDifficulty.Read(buffer )))(buffer),
-					"chat_preview" => ((Func<PacketBuffer, PacketChatPreview>)((buffer) => Mine.Net.Play.Clientbound.PacketChatPreview.Read(buffer )))(buffer),
-					"clear_titles" => ((Func<PacketBuffer, PacketClearTitles>)((buffer) => Mine.Net.Play.Clientbound.PacketClearTitles.Read(buffer )))(buffer),
-					"tab_complete" => ((Func<PacketBuffer, PacketTabComplete>)((buffer) => Mine.Net.Play.Clientbound.PacketTabComplete.Read(buffer )))(buffer),
-					"declare_commands" => ((Func<PacketBuffer, PacketDeclareCommands>)((buffer) => Mine.Net.Play.Clientbound.PacketDeclareCommands.Read(buffer )))(buffer),
-					"close_window" => ((Func<PacketBuffer, PacketCloseWindow>)((buffer) => Mine.Net.Play.Clientbound.PacketCloseWindow.Read(buffer )))(buffer),
-					"window_items" => ((Func<PacketBuffer, PacketWindowItems>)((buffer) => Mine.Net.Play.Clientbound.PacketWindowItems.Read(buffer )))(buffer),
-					"craft_progress_bar" => ((Func<PacketBuffer, PacketCraftProgressBar>)((buffer) => Mine.Net.Play.Clientbound.PacketCraftProgressBar.Read(buffer )))(buffer),
-					"set_slot" => ((Func<PacketBuffer, PacketSetSlot>)((buffer) => Mine.Net.Play.Clientbound.PacketSetSlot.Read(buffer )))(buffer),
-					"set_cooldown" => ((Func<PacketBuffer, PacketSetCooldown>)((buffer) => Mine.Net.Play.Clientbound.PacketSetCooldown.Read(buffer )))(buffer),
-					"chat_suggestions" => ((Func<PacketBuffer, PacketChatSuggestions>)((buffer) => Mine.Net.Play.Clientbound.PacketChatSuggestions.Read(buffer )))(buffer),
-					"custom_payload" => ((Func<PacketBuffer, PacketCustomPayload>)((buffer) => Mine.Net.Play.Clientbound.PacketCustomPayload.Read(buffer )))(buffer),
-					"named_sound_effect" => ((Func<PacketBuffer, PacketNamedSoundEffect>)((buffer) => Mine.Net.Play.Clientbound.PacketNamedSoundEffect.Read(buffer )))(buffer),
-					"hide_message" => ((Func<PacketBuffer, PacketHideMessage>)((buffer) => Mine.Net.Play.Clientbound.PacketHideMessage.Read(buffer )))(buffer),
-					"kick_disconnect" => ((Func<PacketBuffer, PacketKickDisconnect>)((buffer) => Mine.Net.Play.Clientbound.PacketKickDisconnect.Read(buffer )))(buffer),
-					"entity_status" => ((Func<PacketBuffer, PacketEntityStatus>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityStatus.Read(buffer )))(buffer),
-					"explosion" => ((Func<PacketBuffer, PacketExplosion>)((buffer) => Mine.Net.Play.Clientbound.PacketExplosion.Read(buffer )))(buffer),
-					"unload_chunk" => ((Func<PacketBuffer, PacketUnloadChunk>)((buffer) => Mine.Net.Play.Clientbound.PacketUnloadChunk.Read(buffer )))(buffer),
-					"game_state_change" => ((Func<PacketBuffer, PacketGameStateChange>)((buffer) => Mine.Net.Play.Clientbound.PacketGameStateChange.Read(buffer )))(buffer),
-					"open_horse_window" => ((Func<PacketBuffer, PacketOpenHorseWindow>)((buffer) => Mine.Net.Play.Clientbound.PacketOpenHorseWindow.Read(buffer )))(buffer),
-					"initialize_world_border" => ((Func<PacketBuffer, PacketInitializeWorldBorder>)((buffer) => Mine.Net.Play.Clientbound.PacketInitializeWorldBorder.Read(buffer )))(buffer),
-					"keep_alive" => ((Func<PacketBuffer, PacketKeepAlive>)((buffer) => Mine.Net.Play.Clientbound.PacketKeepAlive.Read(buffer )))(buffer),
-					"map_chunk" => ((Func<PacketBuffer, PacketMapChunk>)((buffer) => Mine.Net.Play.Clientbound.PacketMapChunk.Read(buffer )))(buffer),
-					"world_event" => ((Func<PacketBuffer, PacketWorldEvent>)((buffer) => Mine.Net.Play.Clientbound.PacketWorldEvent.Read(buffer )))(buffer),
-					"world_particles" => ((Func<PacketBuffer, PacketWorldParticles>)((buffer) => Mine.Net.Play.Clientbound.PacketWorldParticles.Read(buffer )))(buffer),
-					"update_light" => ((Func<PacketBuffer, PacketUpdateLight>)((buffer) => Mine.Net.Play.Clientbound.PacketUpdateLight.Read(buffer )))(buffer),
-					"login" => ((Func<PacketBuffer, PacketLogin>)((buffer) => Mine.Net.Play.Clientbound.PacketLogin.Read(buffer )))(buffer),
-					"map" => ((Func<PacketBuffer, PacketMap>)((buffer) => Mine.Net.Play.Clientbound.PacketMap.Read(buffer )))(buffer),
-					"trade_list" => ((Func<PacketBuffer, PacketTradeList>)((buffer) => Mine.Net.Play.Clientbound.PacketTradeList.Read(buffer )))(buffer),
-					"rel_entity_move" => ((Func<PacketBuffer, PacketRelEntityMove>)((buffer) => Mine.Net.Play.Clientbound.PacketRelEntityMove.Read(buffer )))(buffer),
-					"entity_move_look" => ((Func<PacketBuffer, PacketEntityMoveLook>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityMoveLook.Read(buffer )))(buffer),
-					"entity_look" => ((Func<PacketBuffer, PacketEntityLook>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityLook.Read(buffer )))(buffer),
-					"vehicle_move" => ((Func<PacketBuffer, PacketVehicleMove>)((buffer) => Mine.Net.Play.Clientbound.PacketVehicleMove.Read(buffer )))(buffer),
-					"open_book" => ((Func<PacketBuffer, PacketOpenBook>)((buffer) => Mine.Net.Play.Clientbound.PacketOpenBook.Read(buffer )))(buffer),
-					"open_window" => ((Func<PacketBuffer, PacketOpenWindow>)((buffer) => Mine.Net.Play.Clientbound.PacketOpenWindow.Read(buffer )))(buffer),
-					"open_sign_entity" => ((Func<PacketBuffer, PacketOpenSignEntity>)((buffer) => Mine.Net.Play.Clientbound.PacketOpenSignEntity.Read(buffer )))(buffer),
-					"ping" => ((Func<PacketBuffer, PacketPing>)((buffer) => Mine.Net.Play.Clientbound.PacketPing.Read(buffer )))(buffer),
-					"craft_recipe_response" => ((Func<PacketBuffer, PacketCraftRecipeResponse>)((buffer) => Mine.Net.Play.Clientbound.PacketCraftRecipeResponse.Read(buffer )))(buffer),
-					"abilities" => ((Func<PacketBuffer, PacketAbilities>)((buffer) => Mine.Net.Play.Clientbound.PacketAbilities.Read(buffer )))(buffer),
-					"message_header" => ((Func<PacketBuffer, PacketMessageHeader>)((buffer) => Mine.Net.Play.Clientbound.PacketMessageHeader.Read(buffer )))(buffer),
-					"player_chat" => ((Func<PacketBuffer, PacketPlayerChat>)((buffer) => Mine.Net.Play.Clientbound.PacketPlayerChat.Read(buffer )))(buffer),
-					"end_combat_event" => ((Func<PacketBuffer, PacketEndCombatEvent>)((buffer) => Mine.Net.Play.Clientbound.PacketEndCombatEvent.Read(buffer )))(buffer),
-					"enter_combat_event" => ((Func<PacketBuffer, PacketEnterCombatEvent>)((buffer) => Mine.Net.Play.Clientbound.PacketEnterCombatEvent.Read(buffer )))(buffer),
-					"death_combat_event" => ((Func<PacketBuffer, PacketDeathCombatEvent>)((buffer) => Mine.Net.Play.Clientbound.PacketDeathCombatEvent.Read(buffer )))(buffer),
-					"player_info" => ((Func<PacketBuffer, PacketPlayerInfo>)((buffer) => Mine.Net.Play.Clientbound.PacketPlayerInfo.Read(buffer )))(buffer),
-					"face_player" => ((Func<PacketBuffer, PacketFacePlayer>)((buffer) => Mine.Net.Play.Clientbound.PacketFacePlayer.Read(buffer )))(buffer),
-					"position" => ((Func<PacketBuffer, PacketPosition>)((buffer) => Mine.Net.Play.Clientbound.PacketPosition.Read(buffer )))(buffer),
-					"unlock_recipes" => ((Func<PacketBuffer, PacketUnlockRecipes>)((buffer) => Mine.Net.Play.Clientbound.PacketUnlockRecipes.Read(buffer )))(buffer),
-					"entity_destroy" => ((Func<PacketBuffer, PacketEntityDestroy>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityDestroy.Read(buffer )))(buffer),
-					"remove_entity_effect" => ((Func<PacketBuffer, PacketRemoveEntityEffect>)((buffer) => Mine.Net.Play.Clientbound.PacketRemoveEntityEffect.Read(buffer )))(buffer),
-					"resource_pack_send" => ((Func<PacketBuffer, PacketResourcePackSend>)((buffer) => Mine.Net.Play.Clientbound.PacketResourcePackSend.Read(buffer )))(buffer),
-					"respawn" => ((Func<PacketBuffer, PacketRespawn>)((buffer) => Mine.Net.Play.Clientbound.PacketRespawn.Read(buffer )))(buffer),
-					"entity_head_rotation" => ((Func<PacketBuffer, PacketEntityHeadRotation>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityHeadRotation.Read(buffer )))(buffer),
-					"multi_block_change" => ((Func<PacketBuffer, PacketMultiBlockChange>)((buffer) => Mine.Net.Play.Clientbound.PacketMultiBlockChange.Read(buffer )))(buffer),
-					"select_advancement_tab" => ((Func<PacketBuffer, PacketSelectAdvancementTab>)((buffer) => Mine.Net.Play.Clientbound.PacketSelectAdvancementTab.Read(buffer )))(buffer),
-					"server_data" => ((Func<PacketBuffer, PacketServerData>)((buffer) => Mine.Net.Play.Clientbound.PacketServerData.Read(buffer )))(buffer),
-					"action_bar" => ((Func<PacketBuffer, PacketActionBar>)((buffer) => Mine.Net.Play.Clientbound.PacketActionBar.Read(buffer )))(buffer),
-					"world_border_center" => ((Func<PacketBuffer, PacketWorldBorderCenter>)((buffer) => Mine.Net.Play.Clientbound.PacketWorldBorderCenter.Read(buffer )))(buffer),
-					"world_border_lerp_size" => ((Func<PacketBuffer, PacketWorldBorderLerpSize>)((buffer) => Mine.Net.Play.Clientbound.PacketWorldBorderLerpSize.Read(buffer )))(buffer),
-					"world_border_size" => ((Func<PacketBuffer, PacketWorldBorderSize>)((buffer) => Mine.Net.Play.Clientbound.PacketWorldBorderSize.Read(buffer )))(buffer),
-					"world_border_warning_delay" => ((Func<PacketBuffer, PacketWorldBorderWarningDelay>)((buffer) => Mine.Net.Play.Clientbound.PacketWorldBorderWarningDelay.Read(buffer )))(buffer),
-					"world_border_warning_reach" => ((Func<PacketBuffer, PacketWorldBorderWarningReach>)((buffer) => Mine.Net.Play.Clientbound.PacketWorldBorderWarningReach.Read(buffer )))(buffer),
-					"camera" => ((Func<PacketBuffer, PacketCamera>)((buffer) => Mine.Net.Play.Clientbound.PacketCamera.Read(buffer )))(buffer),
-					"held_item_slot" => ((Func<PacketBuffer, PacketHeldItemSlot>)((buffer) => Mine.Net.Play.Clientbound.PacketHeldItemSlot.Read(buffer )))(buffer),
-					"update_view_position" => ((Func<PacketBuffer, PacketUpdateViewPosition>)((buffer) => Mine.Net.Play.Clientbound.PacketUpdateViewPosition.Read(buffer )))(buffer),
-					"update_view_distance" => ((Func<PacketBuffer, PacketUpdateViewDistance>)((buffer) => Mine.Net.Play.Clientbound.PacketUpdateViewDistance.Read(buffer )))(buffer),
-					"spawn_position" => ((Func<PacketBuffer, PacketSpawnPosition>)((buffer) => Mine.Net.Play.Clientbound.PacketSpawnPosition.Read(buffer )))(buffer),
-					"should_display_chat_preview" => ((Func<PacketBuffer, PacketShouldDisplayChatPreview>)((buffer) => Mine.Net.Play.Clientbound.PacketShouldDisplayChatPreview.Read(buffer )))(buffer),
-					"scoreboard_display_objective" => ((Func<PacketBuffer, PacketScoreboardDisplayObjective>)((buffer) => Mine.Net.Play.Clientbound.PacketScoreboardDisplayObjective.Read(buffer )))(buffer),
-					"entity_metadata" => ((Func<PacketBuffer, PacketEntityMetadata>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityMetadata.Read(buffer )))(buffer),
-					"attach_entity" => ((Func<PacketBuffer, PacketAttachEntity>)((buffer) => Mine.Net.Play.Clientbound.PacketAttachEntity.Read(buffer )))(buffer),
-					"entity_velocity" => ((Func<PacketBuffer, PacketEntityVelocity>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityVelocity.Read(buffer )))(buffer),
-					"entity_equipment" => ((Func<PacketBuffer, PacketEntityEquipment>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityEquipment.Read(buffer )))(buffer),
-					"experience" => ((Func<PacketBuffer, PacketExperience>)((buffer) => Mine.Net.Play.Clientbound.PacketExperience.Read(buffer )))(buffer),
-					"update_health" => ((Func<PacketBuffer, PacketUpdateHealth>)((buffer) => Mine.Net.Play.Clientbound.PacketUpdateHealth.Read(buffer )))(buffer),
-					"scoreboard_objective" => ((Func<PacketBuffer, PacketScoreboardObjective>)((buffer) => Mine.Net.Play.Clientbound.PacketScoreboardObjective.Read(buffer )))(buffer),
-					"set_passengers" => ((Func<PacketBuffer, PacketSetPassengers>)((buffer) => Mine.Net.Play.Clientbound.PacketSetPassengers.Read(buffer )))(buffer),
-					"teams" => ((Func<PacketBuffer, PacketTeams>)((buffer) => Mine.Net.Play.Clientbound.PacketTeams.Read(buffer )))(buffer),
-					"scoreboard_score" => ((Func<PacketBuffer, PacketScoreboardScore>)((buffer) => Mine.Net.Play.Clientbound.PacketScoreboardScore.Read(buffer )))(buffer),
-					"simulation_distance" => ((Func<PacketBuffer, PacketSimulationDistance>)((buffer) => Mine.Net.Play.Clientbound.PacketSimulationDistance.Read(buffer )))(buffer),
-					"set_title_subtitle" => ((Func<PacketBuffer, PacketSetTitleSubtitle>)((buffer) => Mine.Net.Play.Clientbound.PacketSetTitleSubtitle.Read(buffer )))(buffer),
-					"update_time" => ((Func<PacketBuffer, PacketUpdateTime>)((buffer) => Mine.Net.Play.Clientbound.PacketUpdateTime.Read(buffer )))(buffer),
-					"set_title_text" => ((Func<PacketBuffer, PacketSetTitleText>)((buffer) => Mine.Net.Play.Clientbound.PacketSetTitleText.Read(buffer )))(buffer),
-					"set_title_time" => ((Func<PacketBuffer, PacketSetTitleTime>)((buffer) => Mine.Net.Play.Clientbound.PacketSetTitleTime.Read(buffer )))(buffer),
-					"entity_sound_effect" => ((Func<PacketBuffer, PacketEntitySoundEffect>)((buffer) => Mine.Net.Play.Clientbound.PacketEntitySoundEffect.Read(buffer )))(buffer),
-					"sound_effect" => ((Func<PacketBuffer, PacketSoundEffect>)((buffer) => Mine.Net.Play.Clientbound.PacketSoundEffect.Read(buffer )))(buffer),
-					"stop_sound" => ((Func<PacketBuffer, PacketStopSound>)((buffer) => Mine.Net.Play.Clientbound.PacketStopSound.Read(buffer )))(buffer),
-					"system_chat" => ((Func<PacketBuffer, PacketSystemChat>)((buffer) => Mine.Net.Play.Clientbound.PacketSystemChat.Read(buffer )))(buffer),
-					"playerlist_header" => ((Func<PacketBuffer, PacketPlayerlistHeader>)((buffer) => Mine.Net.Play.Clientbound.PacketPlayerlistHeader.Read(buffer )))(buffer),
-					"nbt_query_response" => ((Func<PacketBuffer, PacketNbtQueryResponse>)((buffer) => Mine.Net.Play.Clientbound.PacketNbtQueryResponse.Read(buffer )))(buffer),
-					"collect" => ((Func<PacketBuffer, PacketCollect>)((buffer) => Mine.Net.Play.Clientbound.PacketCollect.Read(buffer )))(buffer),
-					"entity_teleport" => ((Func<PacketBuffer, PacketEntityTeleport>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityTeleport.Read(buffer )))(buffer),
-					"advancements" => ((Func<PacketBuffer, PacketAdvancements>)((buffer) => Mine.Net.Play.Clientbound.PacketAdvancements.Read(buffer )))(buffer),
-					"entity_update_attributes" => ((Func<PacketBuffer, PacketEntityUpdateAttributes>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityUpdateAttributes.Read(buffer )))(buffer),
-					"entity_effect" => ((Func<PacketBuffer, PacketEntityEffect>)((buffer) => Mine.Net.Play.Clientbound.PacketEntityEffect.Read(buffer )))(buffer),
-					"declare_recipes" => ((Func<PacketBuffer, PacketDeclareRecipes>)((buffer) => Mine.Net.Play.Clientbound.PacketDeclareRecipes.Read(buffer )))(buffer),
-					"tags" => ((Func<PacketBuffer, PacketTags>)((buffer) => Mine.Net.Play.Clientbound.PacketTags.Read(buffer )))(buffer),
+					"spawn_entity" => ((Func<PacketBuffer, PacketSpawnEntity>)((buffer) => YAMNL.Play.Clientbound.PacketSpawnEntity.Read(buffer )))(buffer),
+					"spawn_entity_experience_orb" => ((Func<PacketBuffer, PacketSpawnEntityExperienceOrb>)((buffer) => YAMNL.Play.Clientbound.PacketSpawnEntityExperienceOrb.Read(buffer )))(buffer),
+					"named_entity_spawn" => ((Func<PacketBuffer, PacketNamedEntitySpawn>)((buffer) => YAMNL.Play.Clientbound.PacketNamedEntitySpawn.Read(buffer )))(buffer),
+					"animation" => ((Func<PacketBuffer, PacketAnimation>)((buffer) => YAMNL.Play.Clientbound.PacketAnimation.Read(buffer )))(buffer),
+					"statistics" => ((Func<PacketBuffer, PacketStatistics>)((buffer) => YAMNL.Play.Clientbound.PacketStatistics.Read(buffer )))(buffer),
+					"acknowledge_player_digging" => ((Func<PacketBuffer, PacketAcknowledgePlayerDigging>)((buffer) => YAMNL.Play.Clientbound.PacketAcknowledgePlayerDigging.Read(buffer )))(buffer),
+					"block_break_animation" => ((Func<PacketBuffer, PacketBlockBreakAnimation>)((buffer) => YAMNL.Play.Clientbound.PacketBlockBreakAnimation.Read(buffer )))(buffer),
+					"tile_entity_data" => ((Func<PacketBuffer, PacketTileEntityData>)((buffer) => YAMNL.Play.Clientbound.PacketTileEntityData.Read(buffer )))(buffer),
+					"block_action" => ((Func<PacketBuffer, PacketBlockAction>)((buffer) => YAMNL.Play.Clientbound.PacketBlockAction.Read(buffer )))(buffer),
+					"block_change" => ((Func<PacketBuffer, PacketBlockChange>)((buffer) => YAMNL.Play.Clientbound.PacketBlockChange.Read(buffer )))(buffer),
+					"boss_bar" => ((Func<PacketBuffer, PacketBossBar>)((buffer) => YAMNL.Play.Clientbound.PacketBossBar.Read(buffer )))(buffer),
+					"difficulty" => ((Func<PacketBuffer, PacketDifficulty>)((buffer) => YAMNL.Play.Clientbound.PacketDifficulty.Read(buffer )))(buffer),
+					"chat_preview" => ((Func<PacketBuffer, PacketChatPreview>)((buffer) => YAMNL.Play.Clientbound.PacketChatPreview.Read(buffer )))(buffer),
+					"clear_titles" => ((Func<PacketBuffer, PacketClearTitles>)((buffer) => YAMNL.Play.Clientbound.PacketClearTitles.Read(buffer )))(buffer),
+					"tab_complete" => ((Func<PacketBuffer, PacketTabComplete>)((buffer) => YAMNL.Play.Clientbound.PacketTabComplete.Read(buffer )))(buffer),
+					"declare_commands" => ((Func<PacketBuffer, PacketDeclareCommands>)((buffer) => YAMNL.Play.Clientbound.PacketDeclareCommands.Read(buffer )))(buffer),
+					"close_window" => ((Func<PacketBuffer, PacketCloseWindow>)((buffer) => YAMNL.Play.Clientbound.PacketCloseWindow.Read(buffer )))(buffer),
+					"window_items" => ((Func<PacketBuffer, PacketWindowItems>)((buffer) => YAMNL.Play.Clientbound.PacketWindowItems.Read(buffer )))(buffer),
+					"craft_progress_bar" => ((Func<PacketBuffer, PacketCraftProgressBar>)((buffer) => YAMNL.Play.Clientbound.PacketCraftProgressBar.Read(buffer )))(buffer),
+					"set_slot" => ((Func<PacketBuffer, PacketSetSlot>)((buffer) => YAMNL.Play.Clientbound.PacketSetSlot.Read(buffer )))(buffer),
+					"set_cooldown" => ((Func<PacketBuffer, PacketSetCooldown>)((buffer) => YAMNL.Play.Clientbound.PacketSetCooldown.Read(buffer )))(buffer),
+					"chat_suggestions" => ((Func<PacketBuffer, PacketChatSuggestions>)((buffer) => YAMNL.Play.Clientbound.PacketChatSuggestions.Read(buffer )))(buffer),
+					"custom_payload" => ((Func<PacketBuffer, PacketCustomPayload>)((buffer) => YAMNL.Play.Clientbound.PacketCustomPayload.Read(buffer )))(buffer),
+					"named_sound_effect" => ((Func<PacketBuffer, PacketNamedSoundEffect>)((buffer) => YAMNL.Play.Clientbound.PacketNamedSoundEffect.Read(buffer )))(buffer),
+					"hide_message" => ((Func<PacketBuffer, PacketHideMessage>)((buffer) => YAMNL.Play.Clientbound.PacketHideMessage.Read(buffer )))(buffer),
+					"kick_disconnect" => ((Func<PacketBuffer, PacketKickDisconnect>)((buffer) => YAMNL.Play.Clientbound.PacketKickDisconnect.Read(buffer )))(buffer),
+					"entity_status" => ((Func<PacketBuffer, PacketEntityStatus>)((buffer) => YAMNL.Play.Clientbound.PacketEntityStatus.Read(buffer )))(buffer),
+					"explosion" => ((Func<PacketBuffer, PacketExplosion>)((buffer) => YAMNL.Play.Clientbound.PacketExplosion.Read(buffer )))(buffer),
+					"unload_chunk" => ((Func<PacketBuffer, PacketUnloadChunk>)((buffer) => YAMNL.Play.Clientbound.PacketUnloadChunk.Read(buffer )))(buffer),
+					"game_state_change" => ((Func<PacketBuffer, PacketGameStateChange>)((buffer) => YAMNL.Play.Clientbound.PacketGameStateChange.Read(buffer )))(buffer),
+					"open_horse_window" => ((Func<PacketBuffer, PacketOpenHorseWindow>)((buffer) => YAMNL.Play.Clientbound.PacketOpenHorseWindow.Read(buffer )))(buffer),
+					"initialize_world_border" => ((Func<PacketBuffer, PacketInitializeWorldBorder>)((buffer) => YAMNL.Play.Clientbound.PacketInitializeWorldBorder.Read(buffer )))(buffer),
+					"keep_alive" => ((Func<PacketBuffer, PacketKeepAlive>)((buffer) => YAMNL.Play.Clientbound.PacketKeepAlive.Read(buffer )))(buffer),
+					"map_chunk" => ((Func<PacketBuffer, PacketMapChunk>)((buffer) => YAMNL.Play.Clientbound.PacketMapChunk.Read(buffer )))(buffer),
+					"world_event" => ((Func<PacketBuffer, PacketWorldEvent>)((buffer) => YAMNL.Play.Clientbound.PacketWorldEvent.Read(buffer )))(buffer),
+					"world_particles" => ((Func<PacketBuffer, PacketWorldParticles>)((buffer) => YAMNL.Play.Clientbound.PacketWorldParticles.Read(buffer )))(buffer),
+					"update_light" => ((Func<PacketBuffer, PacketUpdateLight>)((buffer) => YAMNL.Play.Clientbound.PacketUpdateLight.Read(buffer )))(buffer),
+					"login" => ((Func<PacketBuffer, PacketLogin>)((buffer) => YAMNL.Play.Clientbound.PacketLogin.Read(buffer )))(buffer),
+					"map" => ((Func<PacketBuffer, PacketMap>)((buffer) => YAMNL.Play.Clientbound.PacketMap.Read(buffer )))(buffer),
+					"trade_list" => ((Func<PacketBuffer, PacketTradeList>)((buffer) => YAMNL.Play.Clientbound.PacketTradeList.Read(buffer )))(buffer),
+					"rel_entity_move" => ((Func<PacketBuffer, PacketRelEntityMove>)((buffer) => YAMNL.Play.Clientbound.PacketRelEntityMove.Read(buffer )))(buffer),
+					"entity_move_look" => ((Func<PacketBuffer, PacketEntityMoveLook>)((buffer) => YAMNL.Play.Clientbound.PacketEntityMoveLook.Read(buffer )))(buffer),
+					"entity_look" => ((Func<PacketBuffer, PacketEntityLook>)((buffer) => YAMNL.Play.Clientbound.PacketEntityLook.Read(buffer )))(buffer),
+					"vehicle_move" => ((Func<PacketBuffer, PacketVehicleMove>)((buffer) => YAMNL.Play.Clientbound.PacketVehicleMove.Read(buffer )))(buffer),
+					"open_book" => ((Func<PacketBuffer, PacketOpenBook>)((buffer) => YAMNL.Play.Clientbound.PacketOpenBook.Read(buffer )))(buffer),
+					"open_window" => ((Func<PacketBuffer, PacketOpenWindow>)((buffer) => YAMNL.Play.Clientbound.PacketOpenWindow.Read(buffer )))(buffer),
+					"open_sign_entity" => ((Func<PacketBuffer, PacketOpenSignEntity>)((buffer) => YAMNL.Play.Clientbound.PacketOpenSignEntity.Read(buffer )))(buffer),
+					"ping" => ((Func<PacketBuffer, PacketPing>)((buffer) => YAMNL.Play.Clientbound.PacketPing.Read(buffer )))(buffer),
+					"craft_recipe_response" => ((Func<PacketBuffer, PacketCraftRecipeResponse>)((buffer) => YAMNL.Play.Clientbound.PacketCraftRecipeResponse.Read(buffer )))(buffer),
+					"abilities" => ((Func<PacketBuffer, PacketAbilities>)((buffer) => YAMNL.Play.Clientbound.PacketAbilities.Read(buffer )))(buffer),
+					"message_header" => ((Func<PacketBuffer, PacketMessageHeader>)((buffer) => YAMNL.Play.Clientbound.PacketMessageHeader.Read(buffer )))(buffer),
+					"player_chat" => ((Func<PacketBuffer, PacketPlayerChat>)((buffer) => YAMNL.Play.Clientbound.PacketPlayerChat.Read(buffer )))(buffer),
+					"end_combat_event" => ((Func<PacketBuffer, PacketEndCombatEvent>)((buffer) => YAMNL.Play.Clientbound.PacketEndCombatEvent.Read(buffer )))(buffer),
+					"enter_combat_event" => ((Func<PacketBuffer, PacketEnterCombatEvent>)((buffer) => YAMNL.Play.Clientbound.PacketEnterCombatEvent.Read(buffer )))(buffer),
+					"death_combat_event" => ((Func<PacketBuffer, PacketDeathCombatEvent>)((buffer) => YAMNL.Play.Clientbound.PacketDeathCombatEvent.Read(buffer )))(buffer),
+					"player_info" => ((Func<PacketBuffer, PacketPlayerInfo>)((buffer) => YAMNL.Play.Clientbound.PacketPlayerInfo.Read(buffer )))(buffer),
+					"face_player" => ((Func<PacketBuffer, PacketFacePlayer>)((buffer) => YAMNL.Play.Clientbound.PacketFacePlayer.Read(buffer )))(buffer),
+					"position" => ((Func<PacketBuffer, PacketPosition>)((buffer) => YAMNL.Play.Clientbound.PacketPosition.Read(buffer )))(buffer),
+					"unlock_recipes" => ((Func<PacketBuffer, PacketUnlockRecipes>)((buffer) => YAMNL.Play.Clientbound.PacketUnlockRecipes.Read(buffer )))(buffer),
+					"entity_destroy" => ((Func<PacketBuffer, PacketEntityDestroy>)((buffer) => YAMNL.Play.Clientbound.PacketEntityDestroy.Read(buffer )))(buffer),
+					"remove_entity_effect" => ((Func<PacketBuffer, PacketRemoveEntityEffect>)((buffer) => YAMNL.Play.Clientbound.PacketRemoveEntityEffect.Read(buffer )))(buffer),
+					"resource_pack_send" => ((Func<PacketBuffer, PacketResourcePackSend>)((buffer) => YAMNL.Play.Clientbound.PacketResourcePackSend.Read(buffer )))(buffer),
+					"respawn" => ((Func<PacketBuffer, PacketRespawn>)((buffer) => YAMNL.Play.Clientbound.PacketRespawn.Read(buffer )))(buffer),
+					"entity_head_rotation" => ((Func<PacketBuffer, PacketEntityHeadRotation>)((buffer) => YAMNL.Play.Clientbound.PacketEntityHeadRotation.Read(buffer )))(buffer),
+					"multi_block_change" => ((Func<PacketBuffer, PacketMultiBlockChange>)((buffer) => YAMNL.Play.Clientbound.PacketMultiBlockChange.Read(buffer )))(buffer),
+					"select_advancement_tab" => ((Func<PacketBuffer, PacketSelectAdvancementTab>)((buffer) => YAMNL.Play.Clientbound.PacketSelectAdvancementTab.Read(buffer )))(buffer),
+					"server_data" => ((Func<PacketBuffer, PacketServerData>)((buffer) => YAMNL.Play.Clientbound.PacketServerData.Read(buffer )))(buffer),
+					"action_bar" => ((Func<PacketBuffer, PacketActionBar>)((buffer) => YAMNL.Play.Clientbound.PacketActionBar.Read(buffer )))(buffer),
+					"world_border_center" => ((Func<PacketBuffer, PacketWorldBorderCenter>)((buffer) => YAMNL.Play.Clientbound.PacketWorldBorderCenter.Read(buffer )))(buffer),
+					"world_border_lerp_size" => ((Func<PacketBuffer, PacketWorldBorderLerpSize>)((buffer) => YAMNL.Play.Clientbound.PacketWorldBorderLerpSize.Read(buffer )))(buffer),
+					"world_border_size" => ((Func<PacketBuffer, PacketWorldBorderSize>)((buffer) => YAMNL.Play.Clientbound.PacketWorldBorderSize.Read(buffer )))(buffer),
+					"world_border_warning_delay" => ((Func<PacketBuffer, PacketWorldBorderWarningDelay>)((buffer) => YAMNL.Play.Clientbound.PacketWorldBorderWarningDelay.Read(buffer )))(buffer),
+					"world_border_warning_reach" => ((Func<PacketBuffer, PacketWorldBorderWarningReach>)((buffer) => YAMNL.Play.Clientbound.PacketWorldBorderWarningReach.Read(buffer )))(buffer),
+					"camera" => ((Func<PacketBuffer, PacketCamera>)((buffer) => YAMNL.Play.Clientbound.PacketCamera.Read(buffer )))(buffer),
+					"held_item_slot" => ((Func<PacketBuffer, PacketHeldItemSlot>)((buffer) => YAMNL.Play.Clientbound.PacketHeldItemSlot.Read(buffer )))(buffer),
+					"update_view_position" => ((Func<PacketBuffer, PacketUpdateViewPosition>)((buffer) => YAMNL.Play.Clientbound.PacketUpdateViewPosition.Read(buffer )))(buffer),
+					"update_view_distance" => ((Func<PacketBuffer, PacketUpdateViewDistance>)((buffer) => YAMNL.Play.Clientbound.PacketUpdateViewDistance.Read(buffer )))(buffer),
+					"spawn_position" => ((Func<PacketBuffer, PacketSpawnPosition>)((buffer) => YAMNL.Play.Clientbound.PacketSpawnPosition.Read(buffer )))(buffer),
+					"should_display_chat_preview" => ((Func<PacketBuffer, PacketShouldDisplayChatPreview>)((buffer) => YAMNL.Play.Clientbound.PacketShouldDisplayChatPreview.Read(buffer )))(buffer),
+					"scoreboard_display_objective" => ((Func<PacketBuffer, PacketScoreboardDisplayObjective>)((buffer) => YAMNL.Play.Clientbound.PacketScoreboardDisplayObjective.Read(buffer )))(buffer),
+					"entity_metadata" => ((Func<PacketBuffer, PacketEntityMetadata>)((buffer) => YAMNL.Play.Clientbound.PacketEntityMetadata.Read(buffer )))(buffer),
+					"attach_entity" => ((Func<PacketBuffer, PacketAttachEntity>)((buffer) => YAMNL.Play.Clientbound.PacketAttachEntity.Read(buffer )))(buffer),
+					"entity_velocity" => ((Func<PacketBuffer, PacketEntityVelocity>)((buffer) => YAMNL.Play.Clientbound.PacketEntityVelocity.Read(buffer )))(buffer),
+					"entity_equipment" => ((Func<PacketBuffer, PacketEntityEquipment>)((buffer) => YAMNL.Play.Clientbound.PacketEntityEquipment.Read(buffer )))(buffer),
+					"experience" => ((Func<PacketBuffer, PacketExperience>)((buffer) => YAMNL.Play.Clientbound.PacketExperience.Read(buffer )))(buffer),
+					"update_health" => ((Func<PacketBuffer, PacketUpdateHealth>)((buffer) => YAMNL.Play.Clientbound.PacketUpdateHealth.Read(buffer )))(buffer),
+					"scoreboard_objective" => ((Func<PacketBuffer, PacketScoreboardObjective>)((buffer) => YAMNL.Play.Clientbound.PacketScoreboardObjective.Read(buffer )))(buffer),
+					"set_passengers" => ((Func<PacketBuffer, PacketSetPassengers>)((buffer) => YAMNL.Play.Clientbound.PacketSetPassengers.Read(buffer )))(buffer),
+					"teams" => ((Func<PacketBuffer, PacketTeams>)((buffer) => YAMNL.Play.Clientbound.PacketTeams.Read(buffer )))(buffer),
+					"scoreboard_score" => ((Func<PacketBuffer, PacketScoreboardScore>)((buffer) => YAMNL.Play.Clientbound.PacketScoreboardScore.Read(buffer )))(buffer),
+					"simulation_distance" => ((Func<PacketBuffer, PacketSimulationDistance>)((buffer) => YAMNL.Play.Clientbound.PacketSimulationDistance.Read(buffer )))(buffer),
+					"set_title_subtitle" => ((Func<PacketBuffer, PacketSetTitleSubtitle>)((buffer) => YAMNL.Play.Clientbound.PacketSetTitleSubtitle.Read(buffer )))(buffer),
+					"update_time" => ((Func<PacketBuffer, PacketUpdateTime>)((buffer) => YAMNL.Play.Clientbound.PacketUpdateTime.Read(buffer )))(buffer),
+					"set_title_text" => ((Func<PacketBuffer, PacketSetTitleText>)((buffer) => YAMNL.Play.Clientbound.PacketSetTitleText.Read(buffer )))(buffer),
+					"set_title_time" => ((Func<PacketBuffer, PacketSetTitleTime>)((buffer) => YAMNL.Play.Clientbound.PacketSetTitleTime.Read(buffer )))(buffer),
+					"entity_sound_effect" => ((Func<PacketBuffer, PacketEntitySoundEffect>)((buffer) => YAMNL.Play.Clientbound.PacketEntitySoundEffect.Read(buffer )))(buffer),
+					"sound_effect" => ((Func<PacketBuffer, PacketSoundEffect>)((buffer) => YAMNL.Play.Clientbound.PacketSoundEffect.Read(buffer )))(buffer),
+					"stop_sound" => ((Func<PacketBuffer, PacketStopSound>)((buffer) => YAMNL.Play.Clientbound.PacketStopSound.Read(buffer )))(buffer),
+					"system_chat" => ((Func<PacketBuffer, PacketSystemChat>)((buffer) => YAMNL.Play.Clientbound.PacketSystemChat.Read(buffer )))(buffer),
+					"playerlist_header" => ((Func<PacketBuffer, PacketPlayerlistHeader>)((buffer) => YAMNL.Play.Clientbound.PacketPlayerlistHeader.Read(buffer )))(buffer),
+					"nbt_query_response" => ((Func<PacketBuffer, PacketNbtQueryResponse>)((buffer) => YAMNL.Play.Clientbound.PacketNbtQueryResponse.Read(buffer )))(buffer),
+					"collect" => ((Func<PacketBuffer, PacketCollect>)((buffer) => YAMNL.Play.Clientbound.PacketCollect.Read(buffer )))(buffer),
+					"entity_teleport" => ((Func<PacketBuffer, PacketEntityTeleport>)((buffer) => YAMNL.Play.Clientbound.PacketEntityTeleport.Read(buffer )))(buffer),
+					"advancements" => ((Func<PacketBuffer, PacketAdvancements>)((buffer) => YAMNL.Play.Clientbound.PacketAdvancements.Read(buffer )))(buffer),
+					"entity_update_attributes" => ((Func<PacketBuffer, PacketEntityUpdateAttributes>)((buffer) => YAMNL.Play.Clientbound.PacketEntityUpdateAttributes.Read(buffer )))(buffer),
+					"entity_effect" => ((Func<PacketBuffer, PacketEntityEffect>)((buffer) => YAMNL.Play.Clientbound.PacketEntityEffect.Read(buffer )))(buffer),
+					"declare_recipes" => ((Func<PacketBuffer, PacketDeclareRecipes>)((buffer) => YAMNL.Play.Clientbound.PacketDeclareRecipes.Read(buffer )))(buffer),
+					"tags" => ((Func<PacketBuffer, PacketTags>)((buffer) => YAMNL.Play.Clientbound.PacketTags.Read(buffer )))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ParamsSwitch(value);
@@ -7992,118 +7992,118 @@ namespace YAMNL.Play.Clientbound
 	}
 	public class PlayPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Play.Clientbound.Packet.Read(buffer);
+			return YAMNL.Play.Clientbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
-				case PacketSpawnEntity p_0x00: new Mine.Net.Play.Clientbound.Packet("spawn_entity", p_0x00!).Write(buffer); break;
-				case PacketSpawnEntityExperienceOrb p_0x01: new Mine.Net.Play.Clientbound.Packet("spawn_entity_experience_orb", p_0x01!).Write(buffer); break;
-				case PacketNamedEntitySpawn p_0x02: new Mine.Net.Play.Clientbound.Packet("named_entity_spawn", p_0x02!).Write(buffer); break;
-				case PacketAnimation p_0x03: new Mine.Net.Play.Clientbound.Packet("animation", p_0x03!).Write(buffer); break;
-				case PacketStatistics p_0x04: new Mine.Net.Play.Clientbound.Packet("statistics", p_0x04!).Write(buffer); break;
-				case PacketAcknowledgePlayerDigging p_0x05: new Mine.Net.Play.Clientbound.Packet("acknowledge_player_digging", p_0x05!).Write(buffer); break;
-				case PacketBlockBreakAnimation p_0x06: new Mine.Net.Play.Clientbound.Packet("block_break_animation", p_0x06!).Write(buffer); break;
-				case PacketTileEntityData p_0x07: new Mine.Net.Play.Clientbound.Packet("tile_entity_data", p_0x07!).Write(buffer); break;
-				case PacketBlockAction p_0x08: new Mine.Net.Play.Clientbound.Packet("block_action", p_0x08!).Write(buffer); break;
-				case PacketBlockChange p_0x09: new Mine.Net.Play.Clientbound.Packet("block_change", p_0x09!).Write(buffer); break;
-				case PacketBossBar p_0x0A: new Mine.Net.Play.Clientbound.Packet("boss_bar", p_0x0A!).Write(buffer); break;
-				case PacketDifficulty p_0x0B: new Mine.Net.Play.Clientbound.Packet("difficulty", p_0x0B!).Write(buffer); break;
-				case PacketChatPreview p_0x0C: new Mine.Net.Play.Clientbound.Packet("chat_preview", p_0x0C!).Write(buffer); break;
-				case PacketClearTitles p_0x0D: new Mine.Net.Play.Clientbound.Packet("clear_titles", p_0x0D!).Write(buffer); break;
-				case PacketTabComplete p_0x0E: new Mine.Net.Play.Clientbound.Packet("tab_complete", p_0x0E!).Write(buffer); break;
-				case PacketDeclareCommands p_0x0F: new Mine.Net.Play.Clientbound.Packet("declare_commands", p_0x0F!).Write(buffer); break;
-				case PacketCloseWindow p_0x10: new Mine.Net.Play.Clientbound.Packet("close_window", p_0x10!).Write(buffer); break;
-				case PacketWindowItems p_0x11: new Mine.Net.Play.Clientbound.Packet("window_items", p_0x11!).Write(buffer); break;
-				case PacketCraftProgressBar p_0x12: new Mine.Net.Play.Clientbound.Packet("craft_progress_bar", p_0x12!).Write(buffer); break;
-				case PacketSetSlot p_0x13: new Mine.Net.Play.Clientbound.Packet("set_slot", p_0x13!).Write(buffer); break;
-				case PacketSetCooldown p_0x14: new Mine.Net.Play.Clientbound.Packet("set_cooldown", p_0x14!).Write(buffer); break;
-				case PacketChatSuggestions p_0x15: new Mine.Net.Play.Clientbound.Packet("chat_suggestions", p_0x15!).Write(buffer); break;
-				case PacketCustomPayload p_0x16: new Mine.Net.Play.Clientbound.Packet("custom_payload", p_0x16!).Write(buffer); break;
-				case PacketNamedSoundEffect p_0x17: new Mine.Net.Play.Clientbound.Packet("named_sound_effect", p_0x17!).Write(buffer); break;
-				case PacketHideMessage p_0x18: new Mine.Net.Play.Clientbound.Packet("hide_message", p_0x18!).Write(buffer); break;
-				case PacketKickDisconnect p_0x19: new Mine.Net.Play.Clientbound.Packet("kick_disconnect", p_0x19!).Write(buffer); break;
-				case PacketEntityStatus p_0x1A: new Mine.Net.Play.Clientbound.Packet("entity_status", p_0x1A!).Write(buffer); break;
-				case PacketExplosion p_0x1B: new Mine.Net.Play.Clientbound.Packet("explosion", p_0x1B!).Write(buffer); break;
-				case PacketUnloadChunk p_0x1C: new Mine.Net.Play.Clientbound.Packet("unload_chunk", p_0x1C!).Write(buffer); break;
-				case PacketGameStateChange p_0x1D: new Mine.Net.Play.Clientbound.Packet("game_state_change", p_0x1D!).Write(buffer); break;
-				case PacketOpenHorseWindow p_0x1E: new Mine.Net.Play.Clientbound.Packet("open_horse_window", p_0x1E!).Write(buffer); break;
-				case PacketInitializeWorldBorder p_0x1F: new Mine.Net.Play.Clientbound.Packet("initialize_world_border", p_0x1F!).Write(buffer); break;
-				case PacketKeepAlive p_0x20: new Mine.Net.Play.Clientbound.Packet("keep_alive", p_0x20!).Write(buffer); break;
-				case PacketMapChunk p_0x21: new Mine.Net.Play.Clientbound.Packet("map_chunk", p_0x21!).Write(buffer); break;
-				case PacketWorldEvent p_0x22: new Mine.Net.Play.Clientbound.Packet("world_event", p_0x22!).Write(buffer); break;
-				case PacketWorldParticles p_0x23: new Mine.Net.Play.Clientbound.Packet("world_particles", p_0x23!).Write(buffer); break;
-				case PacketUpdateLight p_0x24: new Mine.Net.Play.Clientbound.Packet("update_light", p_0x24!).Write(buffer); break;
-				case PacketLogin p_0x25: new Mine.Net.Play.Clientbound.Packet("login", p_0x25!).Write(buffer); break;
-				case PacketMap p_0x26: new Mine.Net.Play.Clientbound.Packet("map", p_0x26!).Write(buffer); break;
-				case PacketTradeList p_0x27: new Mine.Net.Play.Clientbound.Packet("trade_list", p_0x27!).Write(buffer); break;
-				case PacketRelEntityMove p_0x28: new Mine.Net.Play.Clientbound.Packet("rel_entity_move", p_0x28!).Write(buffer); break;
-				case PacketEntityMoveLook p_0x29: new Mine.Net.Play.Clientbound.Packet("entity_move_look", p_0x29!).Write(buffer); break;
-				case PacketEntityLook p_0x2A: new Mine.Net.Play.Clientbound.Packet("entity_look", p_0x2A!).Write(buffer); break;
-				case PacketVehicleMove p_0x2B: new Mine.Net.Play.Clientbound.Packet("vehicle_move", p_0x2B!).Write(buffer); break;
-				case PacketOpenBook p_0x2C: new Mine.Net.Play.Clientbound.Packet("open_book", p_0x2C!).Write(buffer); break;
-				case PacketOpenWindow p_0x2D: new Mine.Net.Play.Clientbound.Packet("open_window", p_0x2D!).Write(buffer); break;
-				case PacketOpenSignEntity p_0x2E: new Mine.Net.Play.Clientbound.Packet("open_sign_entity", p_0x2E!).Write(buffer); break;
-				case PacketPing p_0x2F: new Mine.Net.Play.Clientbound.Packet("ping", p_0x2F!).Write(buffer); break;
-				case PacketCraftRecipeResponse p_0x30: new Mine.Net.Play.Clientbound.Packet("craft_recipe_response", p_0x30!).Write(buffer); break;
-				case PacketAbilities p_0x31: new Mine.Net.Play.Clientbound.Packet("abilities", p_0x31!).Write(buffer); break;
-				case PacketMessageHeader p_0x32: new Mine.Net.Play.Clientbound.Packet("message_header", p_0x32!).Write(buffer); break;
-				case PacketPlayerChat p_0x33: new Mine.Net.Play.Clientbound.Packet("player_chat", p_0x33!).Write(buffer); break;
-				case PacketEndCombatEvent p_0x34: new Mine.Net.Play.Clientbound.Packet("end_combat_event", p_0x34!).Write(buffer); break;
-				case PacketEnterCombatEvent p_0x35: new Mine.Net.Play.Clientbound.Packet("enter_combat_event", p_0x35!).Write(buffer); break;
-				case PacketDeathCombatEvent p_0x36: new Mine.Net.Play.Clientbound.Packet("death_combat_event", p_0x36!).Write(buffer); break;
-				case PacketPlayerInfo p_0x37: new Mine.Net.Play.Clientbound.Packet("player_info", p_0x37!).Write(buffer); break;
-				case PacketFacePlayer p_0x38: new Mine.Net.Play.Clientbound.Packet("face_player", p_0x38!).Write(buffer); break;
-				case PacketPosition p_0x39: new Mine.Net.Play.Clientbound.Packet("position", p_0x39!).Write(buffer); break;
-				case PacketUnlockRecipes p_0x3A: new Mine.Net.Play.Clientbound.Packet("unlock_recipes", p_0x3A!).Write(buffer); break;
-				case PacketEntityDestroy p_0x3B: new Mine.Net.Play.Clientbound.Packet("entity_destroy", p_0x3B!).Write(buffer); break;
-				case PacketRemoveEntityEffect p_0x3C: new Mine.Net.Play.Clientbound.Packet("remove_entity_effect", p_0x3C!).Write(buffer); break;
-				case PacketResourcePackSend p_0x3D: new Mine.Net.Play.Clientbound.Packet("resource_pack_send", p_0x3D!).Write(buffer); break;
-				case PacketRespawn p_0x3E: new Mine.Net.Play.Clientbound.Packet("respawn", p_0x3E!).Write(buffer); break;
-				case PacketEntityHeadRotation p_0x3F: new Mine.Net.Play.Clientbound.Packet("entity_head_rotation", p_0x3F!).Write(buffer); break;
-				case PacketMultiBlockChange p_0x40: new Mine.Net.Play.Clientbound.Packet("multi_block_change", p_0x40!).Write(buffer); break;
-				case PacketSelectAdvancementTab p_0x41: new Mine.Net.Play.Clientbound.Packet("select_advancement_tab", p_0x41!).Write(buffer); break;
-				case PacketServerData p_0x42: new Mine.Net.Play.Clientbound.Packet("server_data", p_0x42!).Write(buffer); break;
-				case PacketActionBar p_0x43: new Mine.Net.Play.Clientbound.Packet("action_bar", p_0x43!).Write(buffer); break;
-				case PacketWorldBorderCenter p_0x44: new Mine.Net.Play.Clientbound.Packet("world_border_center", p_0x44!).Write(buffer); break;
-				case PacketWorldBorderLerpSize p_0x45: new Mine.Net.Play.Clientbound.Packet("world_border_lerp_size", p_0x45!).Write(buffer); break;
-				case PacketWorldBorderSize p_0x46: new Mine.Net.Play.Clientbound.Packet("world_border_size", p_0x46!).Write(buffer); break;
-				case PacketWorldBorderWarningDelay p_0x47: new Mine.Net.Play.Clientbound.Packet("world_border_warning_delay", p_0x47!).Write(buffer); break;
-				case PacketWorldBorderWarningReach p_0x48: new Mine.Net.Play.Clientbound.Packet("world_border_warning_reach", p_0x48!).Write(buffer); break;
-				case PacketCamera p_0x49: new Mine.Net.Play.Clientbound.Packet("camera", p_0x49!).Write(buffer); break;
-				case PacketHeldItemSlot p_0x4A: new Mine.Net.Play.Clientbound.Packet("held_item_slot", p_0x4A!).Write(buffer); break;
-				case PacketUpdateViewPosition p_0x4B: new Mine.Net.Play.Clientbound.Packet("update_view_position", p_0x4B!).Write(buffer); break;
-				case PacketUpdateViewDistance p_0x4C: new Mine.Net.Play.Clientbound.Packet("update_view_distance", p_0x4C!).Write(buffer); break;
-				case PacketSpawnPosition p_0x4D: new Mine.Net.Play.Clientbound.Packet("spawn_position", p_0x4D!).Write(buffer); break;
-				case PacketShouldDisplayChatPreview p_0x4E: new Mine.Net.Play.Clientbound.Packet("should_display_chat_preview", p_0x4E!).Write(buffer); break;
-				case PacketScoreboardDisplayObjective p_0x4F: new Mine.Net.Play.Clientbound.Packet("scoreboard_display_objective", p_0x4F!).Write(buffer); break;
-				case PacketEntityMetadata p_0x50: new Mine.Net.Play.Clientbound.Packet("entity_metadata", p_0x50!).Write(buffer); break;
-				case PacketAttachEntity p_0x51: new Mine.Net.Play.Clientbound.Packet("attach_entity", p_0x51!).Write(buffer); break;
-				case PacketEntityVelocity p_0x52: new Mine.Net.Play.Clientbound.Packet("entity_velocity", p_0x52!).Write(buffer); break;
-				case PacketEntityEquipment p_0x53: new Mine.Net.Play.Clientbound.Packet("entity_equipment", p_0x53!).Write(buffer); break;
-				case PacketExperience p_0x54: new Mine.Net.Play.Clientbound.Packet("experience", p_0x54!).Write(buffer); break;
-				case PacketUpdateHealth p_0x55: new Mine.Net.Play.Clientbound.Packet("update_health", p_0x55!).Write(buffer); break;
-				case PacketScoreboardObjective p_0x56: new Mine.Net.Play.Clientbound.Packet("scoreboard_objective", p_0x56!).Write(buffer); break;
-				case PacketSetPassengers p_0x57: new Mine.Net.Play.Clientbound.Packet("set_passengers", p_0x57!).Write(buffer); break;
-				case PacketTeams p_0x58: new Mine.Net.Play.Clientbound.Packet("teams", p_0x58!).Write(buffer); break;
-				case PacketScoreboardScore p_0x59: new Mine.Net.Play.Clientbound.Packet("scoreboard_score", p_0x59!).Write(buffer); break;
-				case PacketSimulationDistance p_0x5A: new Mine.Net.Play.Clientbound.Packet("simulation_distance", p_0x5A!).Write(buffer); break;
-				case PacketSetTitleSubtitle p_0x5B: new Mine.Net.Play.Clientbound.Packet("set_title_subtitle", p_0x5B!).Write(buffer); break;
-				case PacketUpdateTime p_0x5C: new Mine.Net.Play.Clientbound.Packet("update_time", p_0x5C!).Write(buffer); break;
-				case PacketSetTitleText p_0x5D: new Mine.Net.Play.Clientbound.Packet("set_title_text", p_0x5D!).Write(buffer); break;
-				case PacketSetTitleTime p_0x5E: new Mine.Net.Play.Clientbound.Packet("set_title_time", p_0x5E!).Write(buffer); break;
-				case PacketEntitySoundEffect p_0x5F: new Mine.Net.Play.Clientbound.Packet("entity_sound_effect", p_0x5F!).Write(buffer); break;
-				case PacketSoundEffect p_0x60: new Mine.Net.Play.Clientbound.Packet("sound_effect", p_0x60!).Write(buffer); break;
-				case PacketStopSound p_0x61: new Mine.Net.Play.Clientbound.Packet("stop_sound", p_0x61!).Write(buffer); break;
-				case PacketSystemChat p_0x62: new Mine.Net.Play.Clientbound.Packet("system_chat", p_0x62!).Write(buffer); break;
-				case PacketPlayerlistHeader p_0x63: new Mine.Net.Play.Clientbound.Packet("playerlist_header", p_0x63!).Write(buffer); break;
-				case PacketNbtQueryResponse p_0x64: new Mine.Net.Play.Clientbound.Packet("nbt_query_response", p_0x64!).Write(buffer); break;
-				case PacketCollect p_0x65: new Mine.Net.Play.Clientbound.Packet("collect", p_0x65!).Write(buffer); break;
-				case PacketEntityTeleport p_0x66: new Mine.Net.Play.Clientbound.Packet("entity_teleport", p_0x66!).Write(buffer); break;
-				case PacketAdvancements p_0x67: new Mine.Net.Play.Clientbound.Packet("advancements", p_0x67!).Write(buffer); break;
-				case PacketEntityUpdateAttributes p_0x68: new Mine.Net.Play.Clientbound.Packet("entity_update_attributes", p_0x68!).Write(buffer); break;
-				case PacketEntityEffect p_0x69: new Mine.Net.Play.Clientbound.Packet("entity_effect", p_0x69!).Write(buffer); break;
-				case PacketDeclareRecipes p_0x6A: new Mine.Net.Play.Clientbound.Packet("declare_recipes", p_0x6A!).Write(buffer); break;
-				case PacketTags p_0x6B: new Mine.Net.Play.Clientbound.Packet("tags", p_0x6B!).Write(buffer); break;
+				case PacketSpawnEntity p_0x00: new YAMNL.Play.Clientbound.Packet("spawn_entity", p_0x00!).Write(buffer); break;
+				case PacketSpawnEntityExperienceOrb p_0x01: new YAMNL.Play.Clientbound.Packet("spawn_entity_experience_orb", p_0x01!).Write(buffer); break;
+				case PacketNamedEntitySpawn p_0x02: new YAMNL.Play.Clientbound.Packet("named_entity_spawn", p_0x02!).Write(buffer); break;
+				case PacketAnimation p_0x03: new YAMNL.Play.Clientbound.Packet("animation", p_0x03!).Write(buffer); break;
+				case PacketStatistics p_0x04: new YAMNL.Play.Clientbound.Packet("statistics", p_0x04!).Write(buffer); break;
+				case PacketAcknowledgePlayerDigging p_0x05: new YAMNL.Play.Clientbound.Packet("acknowledge_player_digging", p_0x05!).Write(buffer); break;
+				case PacketBlockBreakAnimation p_0x06: new YAMNL.Play.Clientbound.Packet("block_break_animation", p_0x06!).Write(buffer); break;
+				case PacketTileEntityData p_0x07: new YAMNL.Play.Clientbound.Packet("tile_entity_data", p_0x07!).Write(buffer); break;
+				case PacketBlockAction p_0x08: new YAMNL.Play.Clientbound.Packet("block_action", p_0x08!).Write(buffer); break;
+				case PacketBlockChange p_0x09: new YAMNL.Play.Clientbound.Packet("block_change", p_0x09!).Write(buffer); break;
+				case PacketBossBar p_0x0A: new YAMNL.Play.Clientbound.Packet("boss_bar", p_0x0A!).Write(buffer); break;
+				case PacketDifficulty p_0x0B: new YAMNL.Play.Clientbound.Packet("difficulty", p_0x0B!).Write(buffer); break;
+				case PacketChatPreview p_0x0C: new YAMNL.Play.Clientbound.Packet("chat_preview", p_0x0C!).Write(buffer); break;
+				case PacketClearTitles p_0x0D: new YAMNL.Play.Clientbound.Packet("clear_titles", p_0x0D!).Write(buffer); break;
+				case PacketTabComplete p_0x0E: new YAMNL.Play.Clientbound.Packet("tab_complete", p_0x0E!).Write(buffer); break;
+				case PacketDeclareCommands p_0x0F: new YAMNL.Play.Clientbound.Packet("declare_commands", p_0x0F!).Write(buffer); break;
+				case PacketCloseWindow p_0x10: new YAMNL.Play.Clientbound.Packet("close_window", p_0x10!).Write(buffer); break;
+				case PacketWindowItems p_0x11: new YAMNL.Play.Clientbound.Packet("window_items", p_0x11!).Write(buffer); break;
+				case PacketCraftProgressBar p_0x12: new YAMNL.Play.Clientbound.Packet("craft_progress_bar", p_0x12!).Write(buffer); break;
+				case PacketSetSlot p_0x13: new YAMNL.Play.Clientbound.Packet("set_slot", p_0x13!).Write(buffer); break;
+				case PacketSetCooldown p_0x14: new YAMNL.Play.Clientbound.Packet("set_cooldown", p_0x14!).Write(buffer); break;
+				case PacketChatSuggestions p_0x15: new YAMNL.Play.Clientbound.Packet("chat_suggestions", p_0x15!).Write(buffer); break;
+				case PacketCustomPayload p_0x16: new YAMNL.Play.Clientbound.Packet("custom_payload", p_0x16!).Write(buffer); break;
+				case PacketNamedSoundEffect p_0x17: new YAMNL.Play.Clientbound.Packet("named_sound_effect", p_0x17!).Write(buffer); break;
+				case PacketHideMessage p_0x18: new YAMNL.Play.Clientbound.Packet("hide_message", p_0x18!).Write(buffer); break;
+				case PacketKickDisconnect p_0x19: new YAMNL.Play.Clientbound.Packet("kick_disconnect", p_0x19!).Write(buffer); break;
+				case PacketEntityStatus p_0x1A: new YAMNL.Play.Clientbound.Packet("entity_status", p_0x1A!).Write(buffer); break;
+				case PacketExplosion p_0x1B: new YAMNL.Play.Clientbound.Packet("explosion", p_0x1B!).Write(buffer); break;
+				case PacketUnloadChunk p_0x1C: new YAMNL.Play.Clientbound.Packet("unload_chunk", p_0x1C!).Write(buffer); break;
+				case PacketGameStateChange p_0x1D: new YAMNL.Play.Clientbound.Packet("game_state_change", p_0x1D!).Write(buffer); break;
+				case PacketOpenHorseWindow p_0x1E: new YAMNL.Play.Clientbound.Packet("open_horse_window", p_0x1E!).Write(buffer); break;
+				case PacketInitializeWorldBorder p_0x1F: new YAMNL.Play.Clientbound.Packet("initialize_world_border", p_0x1F!).Write(buffer); break;
+				case PacketKeepAlive p_0x20: new YAMNL.Play.Clientbound.Packet("keep_alive", p_0x20!).Write(buffer); break;
+				case PacketMapChunk p_0x21: new YAMNL.Play.Clientbound.Packet("map_chunk", p_0x21!).Write(buffer); break;
+				case PacketWorldEvent p_0x22: new YAMNL.Play.Clientbound.Packet("world_event", p_0x22!).Write(buffer); break;
+				case PacketWorldParticles p_0x23: new YAMNL.Play.Clientbound.Packet("world_particles", p_0x23!).Write(buffer); break;
+				case PacketUpdateLight p_0x24: new YAMNL.Play.Clientbound.Packet("update_light", p_0x24!).Write(buffer); break;
+				case PacketLogin p_0x25: new YAMNL.Play.Clientbound.Packet("login", p_0x25!).Write(buffer); break;
+				case PacketMap p_0x26: new YAMNL.Play.Clientbound.Packet("map", p_0x26!).Write(buffer); break;
+				case PacketTradeList p_0x27: new YAMNL.Play.Clientbound.Packet("trade_list", p_0x27!).Write(buffer); break;
+				case PacketRelEntityMove p_0x28: new YAMNL.Play.Clientbound.Packet("rel_entity_move", p_0x28!).Write(buffer); break;
+				case PacketEntityMoveLook p_0x29: new YAMNL.Play.Clientbound.Packet("entity_move_look", p_0x29!).Write(buffer); break;
+				case PacketEntityLook p_0x2A: new YAMNL.Play.Clientbound.Packet("entity_look", p_0x2A!).Write(buffer); break;
+				case PacketVehicleMove p_0x2B: new YAMNL.Play.Clientbound.Packet("vehicle_move", p_0x2B!).Write(buffer); break;
+				case PacketOpenBook p_0x2C: new YAMNL.Play.Clientbound.Packet("open_book", p_0x2C!).Write(buffer); break;
+				case PacketOpenWindow p_0x2D: new YAMNL.Play.Clientbound.Packet("open_window", p_0x2D!).Write(buffer); break;
+				case PacketOpenSignEntity p_0x2E: new YAMNL.Play.Clientbound.Packet("open_sign_entity", p_0x2E!).Write(buffer); break;
+				case PacketPing p_0x2F: new YAMNL.Play.Clientbound.Packet("ping", p_0x2F!).Write(buffer); break;
+				case PacketCraftRecipeResponse p_0x30: new YAMNL.Play.Clientbound.Packet("craft_recipe_response", p_0x30!).Write(buffer); break;
+				case PacketAbilities p_0x31: new YAMNL.Play.Clientbound.Packet("abilities", p_0x31!).Write(buffer); break;
+				case PacketMessageHeader p_0x32: new YAMNL.Play.Clientbound.Packet("message_header", p_0x32!).Write(buffer); break;
+				case PacketPlayerChat p_0x33: new YAMNL.Play.Clientbound.Packet("player_chat", p_0x33!).Write(buffer); break;
+				case PacketEndCombatEvent p_0x34: new YAMNL.Play.Clientbound.Packet("end_combat_event", p_0x34!).Write(buffer); break;
+				case PacketEnterCombatEvent p_0x35: new YAMNL.Play.Clientbound.Packet("enter_combat_event", p_0x35!).Write(buffer); break;
+				case PacketDeathCombatEvent p_0x36: new YAMNL.Play.Clientbound.Packet("death_combat_event", p_0x36!).Write(buffer); break;
+				case PacketPlayerInfo p_0x37: new YAMNL.Play.Clientbound.Packet("player_info", p_0x37!).Write(buffer); break;
+				case PacketFacePlayer p_0x38: new YAMNL.Play.Clientbound.Packet("face_player", p_0x38!).Write(buffer); break;
+				case PacketPosition p_0x39: new YAMNL.Play.Clientbound.Packet("position", p_0x39!).Write(buffer); break;
+				case PacketUnlockRecipes p_0x3A: new YAMNL.Play.Clientbound.Packet("unlock_recipes", p_0x3A!).Write(buffer); break;
+				case PacketEntityDestroy p_0x3B: new YAMNL.Play.Clientbound.Packet("entity_destroy", p_0x3B!).Write(buffer); break;
+				case PacketRemoveEntityEffect p_0x3C: new YAMNL.Play.Clientbound.Packet("remove_entity_effect", p_0x3C!).Write(buffer); break;
+				case PacketResourcePackSend p_0x3D: new YAMNL.Play.Clientbound.Packet("resource_pack_send", p_0x3D!).Write(buffer); break;
+				case PacketRespawn p_0x3E: new YAMNL.Play.Clientbound.Packet("respawn", p_0x3E!).Write(buffer); break;
+				case PacketEntityHeadRotation p_0x3F: new YAMNL.Play.Clientbound.Packet("entity_head_rotation", p_0x3F!).Write(buffer); break;
+				case PacketMultiBlockChange p_0x40: new YAMNL.Play.Clientbound.Packet("multi_block_change", p_0x40!).Write(buffer); break;
+				case PacketSelectAdvancementTab p_0x41: new YAMNL.Play.Clientbound.Packet("select_advancement_tab", p_0x41!).Write(buffer); break;
+				case PacketServerData p_0x42: new YAMNL.Play.Clientbound.Packet("server_data", p_0x42!).Write(buffer); break;
+				case PacketActionBar p_0x43: new YAMNL.Play.Clientbound.Packet("action_bar", p_0x43!).Write(buffer); break;
+				case PacketWorldBorderCenter p_0x44: new YAMNL.Play.Clientbound.Packet("world_border_center", p_0x44!).Write(buffer); break;
+				case PacketWorldBorderLerpSize p_0x45: new YAMNL.Play.Clientbound.Packet("world_border_lerp_size", p_0x45!).Write(buffer); break;
+				case PacketWorldBorderSize p_0x46: new YAMNL.Play.Clientbound.Packet("world_border_size", p_0x46!).Write(buffer); break;
+				case PacketWorldBorderWarningDelay p_0x47: new YAMNL.Play.Clientbound.Packet("world_border_warning_delay", p_0x47!).Write(buffer); break;
+				case PacketWorldBorderWarningReach p_0x48: new YAMNL.Play.Clientbound.Packet("world_border_warning_reach", p_0x48!).Write(buffer); break;
+				case PacketCamera p_0x49: new YAMNL.Play.Clientbound.Packet("camera", p_0x49!).Write(buffer); break;
+				case PacketHeldItemSlot p_0x4A: new YAMNL.Play.Clientbound.Packet("held_item_slot", p_0x4A!).Write(buffer); break;
+				case PacketUpdateViewPosition p_0x4B: new YAMNL.Play.Clientbound.Packet("update_view_position", p_0x4B!).Write(buffer); break;
+				case PacketUpdateViewDistance p_0x4C: new YAMNL.Play.Clientbound.Packet("update_view_distance", p_0x4C!).Write(buffer); break;
+				case PacketSpawnPosition p_0x4D: new YAMNL.Play.Clientbound.Packet("spawn_position", p_0x4D!).Write(buffer); break;
+				case PacketShouldDisplayChatPreview p_0x4E: new YAMNL.Play.Clientbound.Packet("should_display_chat_preview", p_0x4E!).Write(buffer); break;
+				case PacketScoreboardDisplayObjective p_0x4F: new YAMNL.Play.Clientbound.Packet("scoreboard_display_objective", p_0x4F!).Write(buffer); break;
+				case PacketEntityMetadata p_0x50: new YAMNL.Play.Clientbound.Packet("entity_metadata", p_0x50!).Write(buffer); break;
+				case PacketAttachEntity p_0x51: new YAMNL.Play.Clientbound.Packet("attach_entity", p_0x51!).Write(buffer); break;
+				case PacketEntityVelocity p_0x52: new YAMNL.Play.Clientbound.Packet("entity_velocity", p_0x52!).Write(buffer); break;
+				case PacketEntityEquipment p_0x53: new YAMNL.Play.Clientbound.Packet("entity_equipment", p_0x53!).Write(buffer); break;
+				case PacketExperience p_0x54: new YAMNL.Play.Clientbound.Packet("experience", p_0x54!).Write(buffer); break;
+				case PacketUpdateHealth p_0x55: new YAMNL.Play.Clientbound.Packet("update_health", p_0x55!).Write(buffer); break;
+				case PacketScoreboardObjective p_0x56: new YAMNL.Play.Clientbound.Packet("scoreboard_objective", p_0x56!).Write(buffer); break;
+				case PacketSetPassengers p_0x57: new YAMNL.Play.Clientbound.Packet("set_passengers", p_0x57!).Write(buffer); break;
+				case PacketTeams p_0x58: new YAMNL.Play.Clientbound.Packet("teams", p_0x58!).Write(buffer); break;
+				case PacketScoreboardScore p_0x59: new YAMNL.Play.Clientbound.Packet("scoreboard_score", p_0x59!).Write(buffer); break;
+				case PacketSimulationDistance p_0x5A: new YAMNL.Play.Clientbound.Packet("simulation_distance", p_0x5A!).Write(buffer); break;
+				case PacketSetTitleSubtitle p_0x5B: new YAMNL.Play.Clientbound.Packet("set_title_subtitle", p_0x5B!).Write(buffer); break;
+				case PacketUpdateTime p_0x5C: new YAMNL.Play.Clientbound.Packet("update_time", p_0x5C!).Write(buffer); break;
+				case PacketSetTitleText p_0x5D: new YAMNL.Play.Clientbound.Packet("set_title_text", p_0x5D!).Write(buffer); break;
+				case PacketSetTitleTime p_0x5E: new YAMNL.Play.Clientbound.Packet("set_title_time", p_0x5E!).Write(buffer); break;
+				case PacketEntitySoundEffect p_0x5F: new YAMNL.Play.Clientbound.Packet("entity_sound_effect", p_0x5F!).Write(buffer); break;
+				case PacketSoundEffect p_0x60: new YAMNL.Play.Clientbound.Packet("sound_effect", p_0x60!).Write(buffer); break;
+				case PacketStopSound p_0x61: new YAMNL.Play.Clientbound.Packet("stop_sound", p_0x61!).Write(buffer); break;
+				case PacketSystemChat p_0x62: new YAMNL.Play.Clientbound.Packet("system_chat", p_0x62!).Write(buffer); break;
+				case PacketPlayerlistHeader p_0x63: new YAMNL.Play.Clientbound.Packet("playerlist_header", p_0x63!).Write(buffer); break;
+				case PacketNbtQueryResponse p_0x64: new YAMNL.Play.Clientbound.Packet("nbt_query_response", p_0x64!).Write(buffer); break;
+				case PacketCollect p_0x65: new YAMNL.Play.Clientbound.Packet("collect", p_0x65!).Write(buffer); break;
+				case PacketEntityTeleport p_0x66: new YAMNL.Play.Clientbound.Packet("entity_teleport", p_0x66!).Write(buffer); break;
+				case PacketAdvancements p_0x67: new YAMNL.Play.Clientbound.Packet("advancements", p_0x67!).Write(buffer); break;
+				case PacketEntityUpdateAttributes p_0x68: new YAMNL.Play.Clientbound.Packet("entity_update_attributes", p_0x68!).Write(buffer); break;
+				case PacketEntityEffect p_0x69: new YAMNL.Play.Clientbound.Packet("entity_effect", p_0x69!).Write(buffer); break;
+				case PacketDeclareRecipes p_0x6A: new YAMNL.Play.Clientbound.Packet("declare_recipes", p_0x6A!).Write(buffer); break;
+				case PacketTags p_0x6B: new YAMNL.Play.Clientbound.Packet("tags", p_0x6B!).Write(buffer); break;
 				default: throw new Exception($"Play cannot write packet of type {packet.GetType().FullName}");
 			}
 		}
@@ -8177,7 +8177,7 @@ namespace YAMNL.Login.Serverbound
 		}
 		public static PacketLoginStart Read(PacketBuffer buffer ) {
 			string @username = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-			SignatureContainer? @signature = ((Func<PacketBuffer, SignatureContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, SignatureContainer>)((buffer) => Mine.Net.Login.Serverbound.PacketLoginStart.SignatureContainer.Read(buffer ))))))(buffer);
+			SignatureContainer? @signature = ((Func<PacketBuffer, SignatureContainer?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, SignatureContainer>)((buffer) => YAMNL.Login.Serverbound.PacketLoginStart.SignatureContainer.Read(buffer ))))))(buffer);
 			UUID? @playerUUID = ((Func<PacketBuffer, UUID?>)((buffer) => buffer.ReadOption(((Func<PacketBuffer, UUID>)((buffer) => buffer.ReadUUID())))))(buffer);
 			return new PacketLoginStart(@username, @signature, @playerUUID);
 		}
@@ -8227,8 +8227,8 @@ namespace YAMNL.Login.Serverbound
 			}
 			public static CryptoSwitch Read(PacketBuffer buffer, bool state) {
 				object? value = state switch {
-					true => ((Func<PacketBuffer, CryptoSwitchStatetrueContainer>)((buffer) => Mine.Net.Login.Serverbound.PacketEncryptionBegin.CryptoSwitch.CryptoSwitchStatetrueContainer.Read(buffer )))(buffer),
-					false => ((Func<PacketBuffer, CryptoSwitchStatefalseContainer>)((buffer) => Mine.Net.Login.Serverbound.PacketEncryptionBegin.CryptoSwitch.CryptoSwitchStatefalseContainer.Read(buffer )))(buffer),
+					true => ((Func<PacketBuffer, CryptoSwitchStatetrueContainer>)((buffer) => YAMNL.Login.Serverbound.PacketEncryptionBegin.CryptoSwitch.CryptoSwitchStatetrueContainer.Read(buffer )))(buffer),
+					false => ((Func<PacketBuffer, CryptoSwitchStatefalseContainer>)((buffer) => YAMNL.Login.Serverbound.PacketEncryptionBegin.CryptoSwitch.CryptoSwitchStatefalseContainer.Read(buffer )))(buffer),
 				};
 				return new CryptoSwitch(value);
 			}
@@ -8290,9 +8290,9 @@ namespace YAMNL.Login.Serverbound
 			}
 			public static ParamsSwitch Read(PacketBuffer buffer, string state) {
 				object? value = state switch {
-					"login_start" => ((Func<PacketBuffer, PacketLoginStart>)((buffer) => Mine.Net.Login.Serverbound.PacketLoginStart.Read(buffer )))(buffer),
-					"encryption_begin" => ((Func<PacketBuffer, PacketEncryptionBegin>)((buffer) => Mine.Net.Login.Serverbound.PacketEncryptionBegin.Read(buffer )))(buffer),
-					"login_plugin_response" => ((Func<PacketBuffer, PacketLoginPluginResponse>)((buffer) => Mine.Net.Login.Serverbound.PacketLoginPluginResponse.Read(buffer )))(buffer),
+					"login_start" => ((Func<PacketBuffer, PacketLoginStart>)((buffer) => YAMNL.Login.Serverbound.PacketLoginStart.Read(buffer )))(buffer),
+					"encryption_begin" => ((Func<PacketBuffer, PacketEncryptionBegin>)((buffer) => YAMNL.Login.Serverbound.PacketEncryptionBegin.Read(buffer )))(buffer),
+					"login_plugin_response" => ((Func<PacketBuffer, PacketLoginPluginResponse>)((buffer) => YAMNL.Login.Serverbound.PacketLoginPluginResponse.Read(buffer )))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ParamsSwitch(value);
@@ -8322,13 +8322,13 @@ namespace YAMNL.Login.Serverbound
 	}
 	public class LoginPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Login.Serverbound.Packet.Read(buffer);
+			return YAMNL.Login.Serverbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
-				case PacketLoginStart p_0x00: new Mine.Net.Login.Serverbound.Packet("login_start", p_0x00!).Write(buffer); break;
-				case PacketEncryptionBegin p_0x01: new Mine.Net.Login.Serverbound.Packet("encryption_begin", p_0x01!).Write(buffer); break;
-				case PacketLoginPluginResponse p_0x02: new Mine.Net.Login.Serverbound.Packet("login_plugin_response", p_0x02!).Write(buffer); break;
+				case PacketLoginStart p_0x00: new YAMNL.Login.Serverbound.Packet("login_start", p_0x00!).Write(buffer); break;
+				case PacketEncryptionBegin p_0x01: new YAMNL.Login.Serverbound.Packet("encryption_begin", p_0x01!).Write(buffer); break;
+				case PacketLoginPluginResponse p_0x02: new YAMNL.Login.Serverbound.Packet("login_plugin_response", p_0x02!).Write(buffer); break;
 				default: throw new Exception($"Login cannot write packet of type {packet.GetType().FullName}");
 			}
 		}
@@ -8421,7 +8421,7 @@ namespace YAMNL.Login.Clientbound
 		public static PacketSuccess Read(PacketBuffer buffer ) {
 			UUID @uuid = ((Func<PacketBuffer, UUID>)((buffer) => buffer.ReadUUID()))(buffer);
 			string @username = ((Func<PacketBuffer, string>)((buffer) => buffer.ReadPString(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt())))))(buffer);
-			PropertiesElementContainer[] @properties = ((Func<PacketBuffer, PropertiesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PropertiesElementContainer>)((buffer) => Mine.Net.Login.Clientbound.PacketSuccess.PropertiesElementContainer.Read(buffer ))))))(buffer);
+			PropertiesElementContainer[] @properties = ((Func<PacketBuffer, PropertiesElementContainer[]>)((buffer) => buffer.ReadArray(((Func<PacketBuffer, VarInt>)((buffer) => buffer.ReadVarInt()))(buffer), ((Func<PacketBuffer, PropertiesElementContainer>)((buffer) => YAMNL.Login.Clientbound.PacketSuccess.PropertiesElementContainer.Read(buffer ))))))(buffer);
 			return new PacketSuccess(@uuid, @username, @properties);
 		}
 	}
@@ -8477,11 +8477,11 @@ namespace YAMNL.Login.Clientbound
 			}
 			public static ParamsSwitch Read(PacketBuffer buffer, string state) {
 				object? value = state switch {
-					"disconnect" => ((Func<PacketBuffer, PacketDisconnect>)((buffer) => Mine.Net.Login.Clientbound.PacketDisconnect.Read(buffer )))(buffer),
-					"encryption_begin" => ((Func<PacketBuffer, PacketEncryptionBegin>)((buffer) => Mine.Net.Login.Clientbound.PacketEncryptionBegin.Read(buffer )))(buffer),
-					"success" => ((Func<PacketBuffer, PacketSuccess>)((buffer) => Mine.Net.Login.Clientbound.PacketSuccess.Read(buffer )))(buffer),
-					"compress" => ((Func<PacketBuffer, PacketCompress>)((buffer) => Mine.Net.Login.Clientbound.PacketCompress.Read(buffer )))(buffer),
-					"login_plugin_request" => ((Func<PacketBuffer, PacketLoginPluginRequest>)((buffer) => Mine.Net.Login.Clientbound.PacketLoginPluginRequest.Read(buffer )))(buffer),
+					"disconnect" => ((Func<PacketBuffer, PacketDisconnect>)((buffer) => YAMNL.Login.Clientbound.PacketDisconnect.Read(buffer )))(buffer),
+					"encryption_begin" => ((Func<PacketBuffer, PacketEncryptionBegin>)((buffer) => YAMNL.Login.Clientbound.PacketEncryptionBegin.Read(buffer )))(buffer),
+					"success" => ((Func<PacketBuffer, PacketSuccess>)((buffer) => YAMNL.Login.Clientbound.PacketSuccess.Read(buffer )))(buffer),
+					"compress" => ((Func<PacketBuffer, PacketCompress>)((buffer) => YAMNL.Login.Clientbound.PacketCompress.Read(buffer )))(buffer),
+					"login_plugin_request" => ((Func<PacketBuffer, PacketLoginPluginRequest>)((buffer) => YAMNL.Login.Clientbound.PacketLoginPluginRequest.Read(buffer )))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ParamsSwitch(value);
@@ -8515,15 +8515,15 @@ namespace YAMNL.Login.Clientbound
 	}
 	public class LoginPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Login.Clientbound.Packet.Read(buffer);
+			return YAMNL.Login.Clientbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
-				case PacketDisconnect p_0x00: new Mine.Net.Login.Clientbound.Packet("disconnect", p_0x00!).Write(buffer); break;
-				case PacketEncryptionBegin p_0x01: new Mine.Net.Login.Clientbound.Packet("encryption_begin", p_0x01!).Write(buffer); break;
-				case PacketSuccess p_0x02: new Mine.Net.Login.Clientbound.Packet("success", p_0x02!).Write(buffer); break;
-				case PacketCompress p_0x03: new Mine.Net.Login.Clientbound.Packet("compress", p_0x03!).Write(buffer); break;
-				case PacketLoginPluginRequest p_0x04: new Mine.Net.Login.Clientbound.Packet("login_plugin_request", p_0x04!).Write(buffer); break;
+				case PacketDisconnect p_0x00: new YAMNL.Login.Clientbound.Packet("disconnect", p_0x00!).Write(buffer); break;
+				case PacketEncryptionBegin p_0x01: new YAMNL.Login.Clientbound.Packet("encryption_begin", p_0x01!).Write(buffer); break;
+				case PacketSuccess p_0x02: new YAMNL.Login.Clientbound.Packet("success", p_0x02!).Write(buffer); break;
+				case PacketCompress p_0x03: new YAMNL.Login.Clientbound.Packet("compress", p_0x03!).Write(buffer); break;
+				case PacketLoginPluginRequest p_0x04: new YAMNL.Login.Clientbound.Packet("login_plugin_request", p_0x04!).Write(buffer); break;
 				default: throw new Exception($"Login cannot write packet of type {packet.GetType().FullName}");
 			}
 		}
@@ -8597,8 +8597,8 @@ namespace YAMNL.Status.Serverbound
 			}
 			public static ParamsSwitch Read(PacketBuffer buffer, string state) {
 				object? value = state switch {
-					"ping_start" => ((Func<PacketBuffer, PacketPingStart>)((buffer) => Mine.Net.Status.Serverbound.PacketPingStart.Read(buffer )))(buffer),
-					"ping" => ((Func<PacketBuffer, PacketPing>)((buffer) => Mine.Net.Status.Serverbound.PacketPing.Read(buffer )))(buffer),
+					"ping_start" => ((Func<PacketBuffer, PacketPingStart>)((buffer) => YAMNL.Status.Serverbound.PacketPingStart.Read(buffer )))(buffer),
+					"ping" => ((Func<PacketBuffer, PacketPing>)((buffer) => YAMNL.Status.Serverbound.PacketPing.Read(buffer )))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ParamsSwitch(value);
@@ -8626,12 +8626,12 @@ namespace YAMNL.Status.Serverbound
 	}
 	public class StatusPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Status.Serverbound.Packet.Read(buffer);
+			return YAMNL.Status.Serverbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
-				case PacketPingStart p_0x00: new Mine.Net.Status.Serverbound.Packet("ping_start", p_0x00!).Write(buffer); break;
-				case PacketPing p_0x01: new Mine.Net.Status.Serverbound.Packet("ping", p_0x01!).Write(buffer); break;
+				case PacketPingStart p_0x00: new YAMNL.Status.Serverbound.Packet("ping_start", p_0x00!).Write(buffer); break;
+				case PacketPing p_0x01: new YAMNL.Status.Serverbound.Packet("ping", p_0x01!).Write(buffer); break;
 				default: throw new Exception($"Status cannot write packet of type {packet.GetType().FullName}");
 			}
 		}
@@ -8693,8 +8693,8 @@ namespace YAMNL.Status.Clientbound
 			}
 			public static ParamsSwitch Read(PacketBuffer buffer, string state) {
 				object? value = state switch {
-					"server_info" => ((Func<PacketBuffer, PacketServerInfo>)((buffer) => Mine.Net.Status.Clientbound.PacketServerInfo.Read(buffer )))(buffer),
-					"ping" => ((Func<PacketBuffer, PacketPing>)((buffer) => Mine.Net.Status.Clientbound.PacketPing.Read(buffer )))(buffer),
+					"server_info" => ((Func<PacketBuffer, PacketServerInfo>)((buffer) => YAMNL.Status.Clientbound.PacketServerInfo.Read(buffer )))(buffer),
+					"ping" => ((Func<PacketBuffer, PacketPing>)((buffer) => YAMNL.Status.Clientbound.PacketPing.Read(buffer )))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ParamsSwitch(value);
@@ -8722,12 +8722,12 @@ namespace YAMNL.Status.Clientbound
 	}
 	public class StatusPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Status.Clientbound.Packet.Read(buffer);
+			return YAMNL.Status.Clientbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
-				case PacketServerInfo p_0x00: new Mine.Net.Status.Clientbound.Packet("server_info", p_0x00!).Write(buffer); break;
-				case PacketPing p_0x01: new Mine.Net.Status.Clientbound.Packet("ping", p_0x01!).Write(buffer); break;
+				case PacketServerInfo p_0x00: new YAMNL.Status.Clientbound.Packet("server_info", p_0x00!).Write(buffer); break;
+				case PacketPing p_0x01: new YAMNL.Status.Clientbound.Packet("ping", p_0x01!).Write(buffer); break;
 				default: throw new Exception($"Status cannot write packet of type {packet.GetType().FullName}");
 			}
 		}
@@ -8817,8 +8817,8 @@ namespace YAMNL.Handshaking.Serverbound
 			}
 			public static ParamsSwitch Read(PacketBuffer buffer, string state) {
 				object? value = state switch {
-					"set_protocol" => ((Func<PacketBuffer, PacketSetProtocol>)((buffer) => Mine.Net.Handshaking.Serverbound.PacketSetProtocol.Read(buffer )))(buffer),
-					"legacy_server_list_ping" => ((Func<PacketBuffer, PacketLegacyServerListPing>)((buffer) => Mine.Net.Handshaking.Serverbound.PacketLegacyServerListPing.Read(buffer )))(buffer),
+					"set_protocol" => ((Func<PacketBuffer, PacketSetProtocol>)((buffer) => YAMNL.Handshaking.Serverbound.PacketSetProtocol.Read(buffer )))(buffer),
+					"legacy_server_list_ping" => ((Func<PacketBuffer, PacketLegacyServerListPing>)((buffer) => YAMNL.Handshaking.Serverbound.PacketLegacyServerListPing.Read(buffer )))(buffer),
 					 _ => throw new Exception($"Invalid value: '{state}'")
 				};
 				return new ParamsSwitch(value);
@@ -8846,12 +8846,12 @@ namespace YAMNL.Handshaking.Serverbound
 	}
 	public class HandshakingPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Handshaking.Serverbound.Packet.Read(buffer);
+			return YAMNL.Handshaking.Serverbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
-				case PacketSetProtocol p_0x00: new Mine.Net.Handshaking.Serverbound.Packet("set_protocol", p_0x00!).Write(buffer); break;
-				case PacketLegacyServerListPing p_0x01: new Mine.Net.Handshaking.Serverbound.Packet("legacy_server_list_ping", p_0x01!).Write(buffer); break;
+				case PacketSetProtocol p_0x00: new YAMNL.Handshaking.Serverbound.Packet("set_protocol", p_0x00!).Write(buffer); break;
+				case PacketLegacyServerListPing p_0x01: new YAMNL.Handshaking.Serverbound.Packet("legacy_server_list_ping", p_0x01!).Write(buffer); break;
 				default: throw new Exception($"Handshaking cannot write packet of type {packet.GetType().FullName}");
 			}
 		}
@@ -8908,7 +8908,7 @@ namespace YAMNL.Handshaking.Clientbound
 	}
 	public class HandshakingPacketFactory : IPacketFactory {
 		public IPacket ReadPacket(PacketBuffer buffer) {
-			return Mine.Net.Handshaking.Clientbound.Packet.Read(buffer);
+			return YAMNL.Handshaking.Clientbound.Packet.Read(buffer);
 		}
 		public void WritePacket(PacketBuffer buffer, IPacketPayload packet) {
 			switch (packet) {
